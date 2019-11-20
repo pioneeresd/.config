@@ -1,0 +1,4 @@
+#!/bin/bash
+
+git clone git@github.com:jhessin/dotfiles.git ~/.
+git clone git@github.com:jhessin/.config ~/.config
