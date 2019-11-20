@@ -1,5 +1,15 @@
 #!/bin/bash
 
+if [ ! -e ~/.ssh/id_rsa.pub ]; then
+	yay -Syy xclip
+	ssh-keygen
+	eval `ssh-agent`
+	ssh-add ~/.ssh/id_rsa
+	cat ~/.ssh/id_rsa.pub | xclip -sel clip
+	echo "Please paste SSH key into github"
+	read -n1 -r -p "Press space to continue..." key
+fi
+
 if [ `git clone git@github.com:jhessin/dotfiles.git --mirror ~/.git` ]; then
 	cd ~
 	git remote update
