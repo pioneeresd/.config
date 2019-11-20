@@ -12,6 +12,7 @@ fi
 
 if [ ! `type pip` ]; then
 	yay -Syy python-pip
+	pip install --user neovim
 fi
 
 if [ `git clone git@github.com:jhessin/dotfiles.git --mirror ~/.git` ]; then
