@@ -1,4 +1,13 @@
 #!/bin/bash
 
-git clone git@github.com:jhessin/dotfiles.git ~/.
-git clone git@github.com:jhessin/.config ~/.config
+git clone git@github.com:jhessin/dotfiles.git --mirror ~/.git
+cd ~
+git remote update
+git init
+git reset --hard
+
+git clone git@github.com:jhessin/.config --mirror ~/.config/.git
+cd ~/.config
+git remote update
+git init
+git reset --hard
