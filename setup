@@ -1,8 +1,14 @@
 #!/bin/bash
 
+yay -Syu --noconfirm
+
+if [ ! `type nvim` ]; then
+	yay -Sy neovim
+fi
+
 if [ ! -e ~/.ssh/id_rsa.pub ]; then
 	yay -Syy xclip
-	ssh-keygen
+	ssh-keygen -f ~/.ssh/id_rsa -q -N ""
 	eval `ssh-agent`
 	ssh-add ~/.ssh/id_rsa
 	cat ~/.ssh/id_rsa.pub | xclip -sel clip
