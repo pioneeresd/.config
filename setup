@@ -10,6 +10,10 @@ if [ ! -e ~/.ssh/id_rsa.pub ]; then
 	read -n1 -r -p "Press space to continue..." key
 fi
 
+if [ ! `type pip` ]; then
+	yay -Syy python-pip
+fi
+
 if [ `git clone git@github.com:jhessin/dotfiles.git --mirror ~/.git` ]; then
 	cd ~
 	git remote update
