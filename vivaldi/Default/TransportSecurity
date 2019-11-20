@@ -1,0 +1,242 @@
+{
+   "0L0etaWgLl5zrJjEPkR/8hUWl16oVPcQ+LNcGn2Z+S8=": {
+      "expiry": 1605718323.575511,
+      "mode": "force-https",
+      "sts_include_subdomains": true,
+      "sts_observed": 1574182323.575519
+   },
+   "0Xl1vb3g7cJjb3iKH1YPH6abEs5EHBLUSOG0MHDsOHo=": {
+      "expiry": 1574441867.697753,
+      "mode": "force-https",
+      "sts_include_subdomains": false,
+      "sts_observed": 1574182667.697757
+   },
+   "11NyBJV6FqVYpjntb+QYxEVODsdntuYUNyX5uG89orI=": {
+      "expiry": 1605718385.853067,
+      "mode": "force-https",
+      "sts_include_subdomains": true,
+      "sts_observed": 1574182385.853072
+   },
+   "3EW8isYqg9RWzv5vuRNNDtgJZ+Ct8u6zE2507FMK9wc=": {
+      "expiry": 1605718323.358901,
+      "mode": "force-https",
+      "sts_include_subdomains": true,
+      "sts_observed": 1574182323.358909
+   },
+   "3YDrgnwwy9l5dtRTrEH3bFZd2CI9f8JuYjdzuVLIX5k=": {
+      "expiry": 1605718384.485019,
+      "mode": "force-https",
+      "sts_include_subdomains": true,
+      "sts_observed": 1574182384.485023
+   },
+   "5fhCCVrX4tF+5ByHklndK1T7/w+RVbuvkb6v4ivCGVs=": {
+      "expect_ct": {
+         "expect_ct_enforce": false,
+         "expect_ct_expiry": 1574268718.084328,
+         "expect_ct_observed": 1574182318.084328,
+         "expect_ct_report_uri": "https://web-security-reports.services.atlassian.com/expect-ct-report/public-analytics"
+      },
+      "expiry": 1605718318.084299,
+      "mode": "force-https",
+      "sts_include_subdomains": false,
+      "sts_observed": 1574182318.084306
+   },
+   "AmSKGdR6fZ3Jg5LvnOAefM/dIhRn1yfjkaWRpxzM1PI=": {
+      "expiry": 1605718323.647402,
+      "mode": "force-https",
+      "sts_include_subdomains": true,
+      "sts_observed": 1574182323.647407
+   },
+   "BS14lpaHAcIOtC+gNpZs1tvGkSJJ6mUySo2rlInJ9yw=": {
+      "expect_ct": {
+         "expect_ct_enforce": false,
+         "expect_ct_expiry": 1574268723.487994,
+         "expect_ct_observed": 1574182323.487994,
+         "expect_ct_report_uri": "https://web-security-reports.services.atlassian.com/expect-ct-report/bxp-nginx"
+      },
+      "expiry": 1605718323.48797,
+      "mode": "force-https",
+      "sts_include_subdomains": false,
+      "sts_observed": 1574182323.487977
+   },
+   "E10e7Gwg5+phsYD4E8qNYFsQySXnIHPAfo4zloUPESc=": {
+      "expect_ct": {
+         "expect_ct_enforce": false,
+         "expect_ct_expiry": 1574787120.409032,
+         "expect_ct_observed": 1574182320.409032,
+         "expect_ct_report_uri": "https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      },
+      "expiry": 1589962320.409002,
+      "mode": "force-https",
+      "sts_include_subdomains": true,
+      "sts_observed": 1574182320.409009
+   },
+   "E1r6NUsFrPgjO468xpCVpfNnS7T4fR5JlMGuGrJlBUk=": {
+      "expiry": 1605718370.564569,
+      "mode": "force-https",
+      "sts_include_subdomains": true,
+      "sts_observed": 1574182370.56458
+   },
+   "EiwSPH0RlPpLCcAfMWoWdxrYxgSOmXnwRaEW7xO4qkE=": {
+      "expiry": 1605718384.141735,
+      "mode": "force-https",
+      "sts_include_subdomains": true,
+      "sts_observed": 1574182384.141744
+   },
+   "FOCDMwQm5/cGzXD5327aYWBijzVQYTwA0/ZG/+Zp36A=": {
+      "expect_ct": {
+         "expect_ct_enforce": false,
+         "expect_ct_expiry": 1574268727.253891,
+         "expect_ct_observed": 1574182327.253891,
+         "expect_ct_report_uri": "https://web-security-reports.services.atlassian.com/expect-ct-report/idproxy"
+      },
+      "expiry": 1605718327.253875,
+      "mode": "force-https",
+      "sts_include_subdomains": false,
+      "sts_observed": 1574182327.253879
+   },
+   "FPCzoUBazG2mmw1VfFT/mR7QwMJIZwLfq+mdSuXwGyQ=": {
+      "expect_ct": {
+         "expect_ct_enforce": false,
+         "expect_ct_expiry": 1574268719.276552,
+         "expect_ct_observed": 1574182319.276552,
+         "expect_ct_report_uri": "https://web-security-reports.services.atlassian.com/expect-ct-report/auth0-proxy"
+      },
+      "expiry": 1605718319.276526,
+      "mode": "force-https",
+      "sts_include_subdomains": false,
+      "sts_observed": 1574182319.276532
+   },
+   "IOm8EqmCuxTAkUzf220T3cMBmvINcTbr5fs5zRrRP2s=": {
+      "expiry": 1605717972.687904,
+      "mode": "force-https",
+      "sts_include_subdomains": false,
+      "sts_observed": 1574181972.687907
+   },
+   "Ifty0kmGtBkqpzyRNEJ2iccvLpOffAEtEf72UjNCr0U=": {
+      "expiry": 1605718199.836862,
+      "mode": "force-https",
+      "sts_include_subdomains": true,
+      "sts_observed": 1574182199.836868
+   },
+   "K3mwljKubP6DJcqhVi8fsM3vZNI4Qkjc6utZeDMF4NQ=": {
+      "expiry": 1589950210.543352,
+      "mode": "force-https",
+      "sts_include_subdomains": false,
+      "sts_observed": 1574182210.543355
+   },
+   "LegEW681wDcQ9/3Fl9Bu1xZWcYjdZysHpqmGOJVAXaw=": {
+      "expiry": 1605718325.438954,
+      "mode": "force-https",
+      "sts_include_subdomains": false,
+      "sts_observed": 1574182325.438958
+   },
+   "P5aJT68hvwkAwFj5YuPJTvgkconOWgnIdGkXwrbLq1g=": {
+      "expiry": 1605718323.51632,
+      "mode": "force-https",
+      "sts_include_subdomains": false,
+      "sts_observed": 1574182323.516323
+   },
+   "Q2i8+5A3kREMoy37yPuUYKheqKsz3RQ2ENTog6mvPhc=": {
+      "expect_ct": {
+         "expect_ct_enforce": false,
+         "expect_ct_expiry": 1574787132.97748,
+         "expect_ct_observed": 1574182332.97748,
+         "expect_ct_report_uri": "https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      },
+      "expiry": 0.0,
+      "mode": "default",
+      "sts_include_subdomains": false,
+      "sts_observed": 0.0
+   },
+   "QVE5t5IcM/T5bnrVlyQUfXAGbXmurwXjhj2b7x3B3Io=": {
+      "expiry": 1605718323.715618,
+      "mode": "force-https",
+      "sts_include_subdomains": true,
+      "sts_observed": 1574182323.715626
+   },
+   "ZqkBhKVaVNtqfbWvjkF16Of27o0jnCIPtzrTIgc52Kk=": {
+      "expiry": 1605718323.578009,
+      "mode": "force-https",
+      "sts_include_subdomains": false,
+      "sts_observed": 1574182323.578014
+   },
+   "a3B8SKjLD5tirvmv/z7o9v4o14J4mMF9RqvzuL7/H4M=": {
+      "expiry": 1605717933.720523,
+      "mode": "force-https",
+      "sts_include_subdomains": false,
+      "sts_observed": 1574181933.720528
+   },
+   "a7ShM1sO3CG0Rp58bZkJ4SB6laJyHb1RqhLw+kSpBMI=": {
+      "expiry": 1605718211.622528,
+      "mode": "force-https",
+      "sts_include_subdomains": false,
+      "sts_observed": 1574182211.622532
+   },
+   "bVzOnu6xyelN8iVLDSbFjyZVgXrXDyLSokjnq2hdUFs=": {
+      "expect_ct": {
+         "expect_ct_enforce": false,
+         "expect_ct_expiry": 1576774199.410378,
+         "expect_ct_observed": 1574182199.410378,
+         "expect_ct_report_uri": "https://api.github.com/_private/browser/errors"
+      },
+      "expiry": 1605718199.410344,
+      "mode": "force-https",
+      "sts_include_subdomains": true,
+      "sts_observed": 1574182199.410352
+   },
+   "hLG8LH00GZ7JYYa9wVYtUs7beQzMe8lPgXn5UV8T2kw=": {
+      "expiry": 1605717903.288378,
+      "mode": "force-https",
+      "sts_include_subdomains": true,
+      "sts_observed": 1574181903.288383
+   },
+   "kTBZlNzaAygsyUNLLJvF9CS33eqAcPjUb75PGjCOtnM=": {
+      "expiry": 1605718199.735185,
+      "mode": "force-https",
+      "sts_include_subdomains": false,
+      "sts_observed": 1574182199.735191
+   },
+   "kkB5ib/+M7npcrRR7ZcVsOzujXBba6S9s0C/7USAGao=": {
+      "expiry": 1605717948.956242,
+      "mode": "force-https",
+      "sts_include_subdomains": false,
+      "sts_observed": 1574181948.956248
+   },
+   "qOq9d3Vj/FCJMQBeLoGIOe5T74snNp8yRtzOZDIEwwo=": {
+      "expiry": 1605717983.976436,
+      "mode": "force-https",
+      "sts_include_subdomains": false,
+      "sts_observed": 1574181983.976439
+   },
+   "sihyN2P4zcbyS3JWfHZ4OiZm+ZV3IyREpRq+cL+DwhU=": {
+      "expect_ct": {
+         "expect_ct_enforce": false,
+         "expect_ct_expiry": 1574268731.169053,
+         "expect_ct_observed": 1574182331.169053,
+         "expect_ct_report_uri": "https://web-security-reports.services.atlassian.com/expect-ct-report/web-security-reports"
+      },
+      "expiry": 1605718331.169018,
+      "mode": "force-https",
+      "sts_include_subdomains": false,
+      "sts_observed": 1574182331.169023
+   },
+   "yLCH8DvWjPzcK0XuUULrkurBvPDwD3JLBN2rotMpuSI=": {
+      "expect_ct": {
+         "expect_ct_enforce": false,
+         "expect_ct_expiry": 1574268618.065638,
+         "expect_ct_observed": 1574182218.065638,
+         "expect_ct_report_uri": "https://web-security-reports.services.atlassian.com/expect-ct-report/atl-preferences-center"
+      },
+      "expiry": 1605718218.065618,
+      "mode": "force-https",
+      "sts_include_subdomains": false,
+      "sts_observed": 1574182218.065623
+   },
+   "zQkU2B/zM8CErt1vHcrSbJzGu0GTJeEwayI5d+6cnhc=": {
+      "expiry": 1589950208.054661,
+      "mode": "force-https",
+      "sts_include_subdomains": false,
+      "sts_observed": 1574182208.054665
+   }
+}
