@@ -197,7 +197,6 @@ bindsym $mod+Shift+c reload
 
 # kill focused window
 bindsym $mod+Shift+q kill
-bindsym $mod+q kill
 
 
 
@@ -408,7 +407,7 @@ for_window [class="Vivaldi-stable"] focus
 #exec --no-startup-id atom
 
 #file manager
-exec --no-startup-id thunar
+#exec --no-startup-id thunar
 
 #Mail clients
 #exec --no-startup-id evolution
@@ -536,7 +535,7 @@ bindsym control+mod1+g exec --no-startup-id chromium;focus
 
 #workspace 2 related
 #bindsym $mod+F2 exec --no-startup-id geany;focus
-bindsym $mod+F2 exec --no-startup-id atom;focus
+bindsym $mod+F2 exec --no-startup-id vim;focus
 bindsym control+mod1+w exec --no-startup-id geany;focus
 
 #workspace 3 related

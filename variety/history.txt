@@ -1,4 +1,5 @@
 0
+/usr/share/backgrounds/arcolinux/yosemite-sunset-3840x2160.jpg
 /usr/share/backgrounds/arcolinux/yosemite-sunrise-3250x1828.jpg
 /usr/share/backgrounds/arcolinux/glorious-voyage-3840x2160.jpg
 /usr/share/backgrounds/arcolinux/arco-wallpaper.jpg
@@ -43,4 +44,3 @@
 /usr/share/backgrounds/arcolinux/cluster-legacy-mono-slate-2560x1440-HD.jpg
 /usr/share/backgrounds/arcolinux/arco_wallpaper_023a_1920x1208.jpg
 /usr/share/backgrounds/arcolinux/marco_arco_wallpaper_009-1920x1080.jpg
-/usr/share/backgrounds/gnome/adwaita-timed.xml
