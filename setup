@@ -4,8 +4,8 @@ cd ~/.config
 git init
 git remote add origin git@github.com:jhessin/.config 
 git fetch
-git reset origin/master
-git checkout -t origin/master
+git reset --hard
+git checkout -t origin/`hostname`
 
 yay -Syu --noconfirm
 
@@ -39,7 +39,7 @@ cd ~
 git init
 git remote add origin git@github.com:jhessin/dotfiles.git 
 git fetch
-git reset origin/master
+git reset --hard
 git checkout -t origin/master
 . .bashrc
 
