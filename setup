@@ -5,6 +5,7 @@ cd ~/.config
 git remote update
 git init
 git reset --hard
+gfetch `hostname`
 
 yay -Syu --noconfirm
 
