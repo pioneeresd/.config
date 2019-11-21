@@ -1,10 +1,11 @@
 #!/bin/bash
 
-git clone git@github.com:jhessin/.config --mirror ~/.config/.git
 cd ~/.config
-git remote update
 git init
-git reset --hard
+git remote add origin git@github.com:jhessin/.config 
+git fetch
+git reset origin/master
+git checkout -t origin/master
 
 yay -Syu --noconfirm
 
@@ -31,11 +32,12 @@ if [ ! `type pip` ]; then
   pip install --user neovim
 fi
 
-git clone git@github.com:jhessin/dotfiles.git --mirror ~/.git
 cd ~
-git remote update
 git init
-git reset --hard
+git remote add origin git@github.com:jhessin/dotfiles.git 
+git fetch
+git reset origin/master
+git checkout -t origin/master
 . .bashrc
 
 git clone git@github.com:jhessin/bin ~/.local/bin
