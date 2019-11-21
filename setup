@@ -12,6 +12,10 @@ if [ ! `type nvim` ]; then
   yay -Sy neovim
 fi
 
+if [ ! `type i3lock` ]; then
+  yay -Sy i3lock
+fi
+
 if [ ! -e ~/.ssh/id_rsa.pub ]; then
   yay -Syy xclip
   ssh-keygen -f ~/.ssh/id_rsa -q -N ""
