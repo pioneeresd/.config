@@ -5,7 +5,6 @@ cd ~/.config
 git remote update
 git init
 git reset --hard
-gfetch `hostname`
 
 yay -Syu --noconfirm
 
@@ -41,4 +40,7 @@ git reset --hard
 
 git clone git@github.com:jhessin/bin ~/.local/bin
 cd ~/.local/bin
+gfetch `hostname`
+
+cd ~/.config
 gfetch `hostname`
