@@ -36,5 +36,8 @@ cd ~
 git remote update
 git init
 git reset --hard
+. .bashrc
 
 git clone git@github.com:jhessin/bin ~/.local/bin
+cd ~/.local/bin
+gfetch `hostname`
