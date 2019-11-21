@@ -20,7 +20,8 @@ set mouse=a
 " plug plugins go here {{{
 call plug#begin('~/.config/nvim/plugged')
 Plug 'lervag/vimtex'
-let g:tex_flavor = 'latex'
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
 Plug 'rust-lang/rust.vim'       " a standard rust plugin {{{
 " Provides Error checking through the syntastic plugin below
 " Also provides tags for the Tagbar plugin below

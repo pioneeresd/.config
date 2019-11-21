@@ -1,0 +1,20 @@
+{
+    "Titans": {
+        "addPaused": null,
+        "affectedFeeds": [
+            "https://eztv.io/ezrss.xml"
+        ],
+        "assignedCategory": "TV",
+        "enabled": true,
+        "episodeFilter": "",
+        "ignoreDays": 0,
+        "lastMatch": "",
+        "mustContain": "Titans",
+        "mustNotContain": "teen",
+        "previouslyMatchedEpisodes": [
+        ],
+        "savePath": "",
+        "smartFilter": true,
+        "useRegex": false
+    }
+}

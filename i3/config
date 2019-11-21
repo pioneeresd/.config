@@ -69,7 +69,7 @@ set $right semicolon
 #exec --no-startup-id xrandr --output DVI-1 --right-of DVI-0 --auto
 #exec --no-startup-id xrandr --output DVI-D-1 --right-of DVI-I-1 --auto
 #exec --no-startup-id xrandr --output HDMI2 --right-of HDMI1 --auto
-exec --no-startup-id dispsetup
+exec --no-startup-id ~/.local/bin/dispsetup
 
 
 # my current setup
@@ -158,12 +158,13 @@ bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'You pressed 
 
 
 #Press $mod (super) and X to exit - check toolbar for next choices
-bindsym $mod+X mode "$mode_system"
+bindsym $mod+Escape mode "$mode_system"
 bindsym control+mod1+Delete mode "$mode_system"
 
 set $mode_system System (l) lock, (x) logout, (u) suspend, (h) hibernate, (r) reboot, (s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id ~/.config/i3/scripts/i3exit.sh lock, mode "default"
+    bindsym $mod+Escape exec --no-startup-id ~/.config/i3/scripts/i3exit.sh lock, mode "default"
     bindsym x exec --no-startup-id ~/.config/i3/scripts/i3exit.sh logout, mode "default"
     bindsym u exec --no-startup-id ~/.config/i3/scripts/i3exit.sh suspend, mode "default"
     bindsym h exec --no-startup-id ~/.config/i3/scripts/i3exit.sh hibernate, mode "default"
@@ -529,7 +530,7 @@ bindsym control+mod1+a exec --no-startup-id xfce4-appfinder
 bindsym control+mod1+p exec --no-startup-id pamac-manager
 
 #xkill
-bindsym --release $mod+Escape exec xkill
+# bindsym --release $mod+Escape exec xkill
 
 #workspace related
 

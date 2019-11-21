@@ -4,7 +4,7 @@
 case "$1" in
     lock)
         # slimlock
-        blacklock
+        ~/.local/bin/blacklock
         ;;
     logout)
         i3-msg exit
