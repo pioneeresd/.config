@@ -3,36 +3,34 @@
 yay -Syu --noconfirm
 
 if [ ! `type nvim` ]; then
-	yay -Sy neovim
+  yay -Sy neovim
 fi
 
 if [ ! -e ~/.ssh/id_rsa.pub ]; then
-	yay -Syy xclip
-	ssh-keygen -f ~/.ssh/id_rsa -q -N ""
-	eval `ssh-agent`
-	ssh-add ~/.ssh/id_rsa
-	cat ~/.ssh/id_rsa.pub | xclip -sel clip
-	echo "Please paste SSH key into github"
-	read -n1 -r -p "Press space to continue..." key
+  yay -Syy xclip
+  ssh-keygen -f ~/.ssh/id_rsa -q -N ""
+  eval `ssh-agent`
+  ssh-add ~/.ssh/id_rsa
+  cat ~/.ssh/id_rsa.pub | xclip -sel clip
+  echo "Please paste SSH key into github"
+  read -n1 -r -p "Press space to continue..." key
 fi
 
 if [ ! `type pip` ]; then
-	yay -Syy python-pip
-	pip install --user neovim
+  yay -Syy python-pip
+  pip install --user neovim
 fi
 
-if [ `git clone git@github.com:jhessin/dotfiles.git --mirror ~/.git` ]; then
-	cd ~
-	git remote update
-	git init
-	git reset --hard
-fi
+git clone git@github.com:jhessin/dotfiles.git --mirror ~/.git
+cd ~
+git remote update
+git init
+git reset --hard
 
-if [ `git clone git@github.com:jhessin/.config --mirror ~/.config/.git` ]; then
-	cd ~/.config
-	git remote update
-	git init
-	git reset --hard
-fi
+git clone git@github.com:jhessin/.config --mirror ~/.config/.git
+cd ~/.config
+git remote update
+git init
+git reset --hard
 
 git clone git@github.com:jhessin/bin ~/.local/bin
