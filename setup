@@ -41,3 +41,5 @@ git reset --hard
 git clone git@github.com:jhessin/bin ~/.local/bin
 cd ~/.local/bin
 gfetch `hostname`
+
+yay -Sy emby-server
