@@ -442,9 +442,11 @@ Plug 'w0rp/ale'                 " Async Lint Engine {{{
 " ale settings
 let g:ale_set_highlights = 1
 let g:airline#extensions#ale#enabled = 1
-let g:ale_cursor_detail = 1
+let g:ale_cursor_detail = 0
 let g:ale_close_preview_on_insert = 1
 let g:ale_set_balloons = 0
+" let g:ale_set_loclist = 0
+" let g:ale_open_list = 0
 let g:ale_fix_on_save = 1
 let g:ale_rust_rls_options = '--cli'
 let g:ale_linters = {
@@ -452,9 +454,10 @@ let g:ale_linters = {
       \ 'latex': [ 'lacheck' ],
       \}
 let g:ale_rust_rls_toolchain = 'stable'
-let g:ale_fixer = { 'rust': ['cargo-fmt'],
-      \      'typescript': ['prettier', 'tslint', 'remove_trailing_lines', 'trim_whitespace']
-      \      }
+let g:ale_fixer = {
+      \ 'rust': ['cargo-fmt'],
+      \ 'typescript': ['prettier', 'tslint', 'remove_trailing_lines', 'trim_whitespace']
+      \ }
 
 " Enable completion where available.
 " This setting must be set before ALE is loaded.
