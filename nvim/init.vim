@@ -20,7 +20,7 @@ set mouse=a
 " plug plugins go here {{{
 call plug#begin('~/.config/nvim/plugged')
 Plug 'lervag/vimtex'  " {{{ Set up latex
-let g:tex_flavor='latex'
+let g:tex_flavor = 'latex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_compiler_method='latexmk'
 let g:vimtex_compiler_latexmk={
@@ -451,7 +451,7 @@ let g:ale_fix_on_save = 1
 let g:ale_rust_rls_options = '--cli'
 let g:ale_linters = {
       \ 'rust': ['rls'],
-      \ 'latex': [ 'lacheck' ],
+      \ 'tex': [ 'lacheck' ],
       \}
 let g:ale_rust_rls_toolchain = 'stable'
 let g:ale_fixer = {
@@ -482,21 +482,23 @@ Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-github'
 
 " LanguageServer client for NeoVim.
-Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+Plug 'autozimu/LanguageClient-neovim' ", { 'do': ':UpdateRemotePlugins' }
 
 augroup ncm
   au!
-  au BufReadPost *.rs setlocal filetype=rust
-  au BufEnter  *.toml,.gitignore  call ncm2#enable_for_buffer()
+  " au BufReadPost *.rs setlocal filetype=rust
+  " au BufEnter  *.toml,.gitignore  call ncm2#enable_for_buffer()
   au FileType * call ncm2#enable_for_buffer()
 augroup END
 
 set completeopt=noinsert,menuone,noselect
 
 let g:LanguageClient_serverCommands = {
+      \ 'vim': ['vim-language-server'],
       \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
       \ 'typescript': ['typescript-language-server', '--stdio'],
-      \ 'html': ['html-languageserver', '--stdio']
+      \ 'html': ['html-languageserver', '--stdio'],
+      \ 'tex': [ 'texlab' ],
       \ }
 
 let g:LanguageClient_autoStart = 1
@@ -570,7 +572,7 @@ endfunction
 
 augroup resCur
   au!
-  au BufWinEnter * call ResCur()
+  " au BufWinEnter * call ResCur()
 augroup END
 " }}}
 
@@ -635,6 +637,7 @@ set expandtab				" tabs are expanded to spaces
 " UI Config {{{
 " set guicursor=    " disable gui cursor for my backward system.
 set tw=79         " Set word wrap at 79 characters
+set formatoptions-=cro
 set number				" show line numbers
 set showcmd				" show command in bottom bar
 set cursorline				" highlight the current line
@@ -648,8 +651,7 @@ set hlsearch          " highlight matches
 " auto indent files on save/load
 augroup UI
   au!
-  au BufRead *.html,*.js,*.ts,*.rs,*.toml :normal gg=G
-  au BufNewFile,BufRead * setlocal formatoptions-=cro
+  " au BufRead *.html,*.js,*.ts,*.rs,*.toml :normal gg=G
   " spell check all md and txt files
   au FileType text,markdown :setlocal spell
 augroup END
@@ -664,7 +666,6 @@ set foldenable        " enable folding
 set foldlevelstart=2  " opening folds when opening a file
 set foldnestmax=10    " maximum number of nested folds
 
-" space open/closes folds 
 set foldmethod=syntax         " use syntax folding
 " }}}
 
@@ -679,8 +680,8 @@ set writebackup
 
 " This is to load package help from the different plugins
 " Not sure how it works yet.
-packloadall
-silent! helptags ALL
+" packloadall
+" silent! helptags ALL
 set modelines=1
 set modelineexpr
 " vim:foldmethod=marker:foldlevel=0
