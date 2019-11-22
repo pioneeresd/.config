@@ -87,19 +87,19 @@ exec --no-startup-id ~/.local/bin/dispsetup
 #set $firstMonitor DVI-I-1
 #set $secondMonitor DVI-D-1
 
-set $firstMonitor HDMI1
-set $secondMonitor HDMI2
+set $firstMonitor VGA-0
+set $secondMonitor DVI-0
 
-workspace 1 output $firstMonitor
-workspace 2 output $firstMonitor
-workspace 3 output $firstMonitor
-workspace 4 output $firstMonitor
+workspace 7 output $firstMonitor
 workspace 5 output $firstMonitor
-workspace 6 output $secondMonitor
-workspace 7 output $secondMonitor
-workspace 8 output $secondMonitor
-workspace 9 output $secondMonitor
+workspace 3 output $firstMonitor
+workspace 1 output $firstMonitor
+workspace 9 output $firstMonitor
 workspace 10 output $secondMonitor
+workspace 2 output $secondMonitor
+workspace 4 output $secondMonitor
+workspace 6 output $secondMonitor
+workspace 8 output $secondMonitor
 
 # switch to workspace
 bindsym $mod+1 workspace 1
