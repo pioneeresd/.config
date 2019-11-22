@@ -19,9 +19,25 @@ set mouse=a
 
 " plug plugins go here {{{
 call plug#begin('~/.config/nvim/plugged')
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex'  " {{{ Set up latex
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
+let g:vimtex_compiler_method='latexmk'
+let g:vimtex_compiler_latexmk={
+      \ 'backend' : 'nvim',
+      \ 'build_dir' : '',
+      \ 'callback' : 0,
+      \ 'continuous' : 1,
+      \ 'executable' : 'latexmk',
+      \ 'hooks' : [],
+      \ 'options' : [
+      \   '-verbose',
+      \   '-file-line-error',
+      \   '-synctex=1',
+      \   '-interaction=nonstopmode',
+      \ ]
+      \}
+" }}}
 Plug 'rust-lang/rust.vim'       " a standard rust plugin {{{
 " Provides Error checking through the syntastic plugin below
 " Also provides tags for the Tagbar plugin below
@@ -428,10 +444,13 @@ let g:ale_set_highlights = 1
 let g:airline#extensions#ale#enabled = 1
 let g:ale_cursor_detail = 1
 let g:ale_close_preview_on_insert = 1
-let g:ale_set_balloons = 1
+let g:ale_set_balloons = 0
 let g:ale_fix_on_save = 1
 let g:ale_rust_rls_options = '--cli'
-let g:ale_linters = { 'rust': ['rls'] }
+let g:ale_linters = {
+      \ 'rust': ['rls'],
+      \ 'latex': [ 'lacheck' ],
+      \}
 let g:ale_rust_rls_toolchain = 'stable'
 let g:ale_fixer = { 'rust': ['cargo-fmt'],
       \      'typescript': ['prettier', 'tslint', 'remove_trailing_lines', 'trim_whitespace']
