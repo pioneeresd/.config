@@ -90,11 +90,11 @@ exec --no-startup-id ~/.local/bin/dispsetup
 set $firstMonitor VGA-0
 set $secondMonitor DVI-0
 
+workspace 9 output $firstMonitor
 workspace 7 output $firstMonitor
 workspace 5 output $firstMonitor
 workspace 3 output $firstMonitor
 workspace 1 output $firstMonitor
-workspace 9 output $firstMonitor
 workspace 10 output $secondMonitor
 workspace 2 output $secondMonitor
 workspace 4 output $secondMonitor
@@ -232,10 +232,13 @@ bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+# bindsym $mod+Shift+Left move left
+# bindsym $mod+Shift+Down move down
+# bindsym $mod+Shift+Up move up
+# bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Left move container to workspace prev; workspace prev
+bindsym $mod+Shift+Right move container to workspace next; workspace next
+
 
 
 
