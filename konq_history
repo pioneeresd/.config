@@ -1,0 +1,6 @@
+[History]
+CompletionItems=unused
+
+[Location Bar]
+ComboContents[$e]=https://www.enpass.io/,https://www.disneyplus.com/
+ComboIconCache[$e]=https://www.enpass.io/,text-html,https://www.disneyplus.com/,$HOME/.cache/favicons/prod-static.disney-plus.net_builds_d7dc05accae73fe217d568b89c602d994e5654d1_1574292005129_images_favicons_favicon.png
