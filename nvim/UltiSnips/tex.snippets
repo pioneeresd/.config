@@ -1,0 +1,15 @@
+snippet doc "Basic document declaration" b
+\documentclass{${1:article}}
+
+${2:\usepackage{}}
+
+\begin{document}
+	$0
+\end{document}
+endsnippet
+
+snippet beg "Create a new environment" b
+\begin{$1}$2
+	$0
+\end{$1}
+endsnippet

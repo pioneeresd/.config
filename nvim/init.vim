@@ -19,6 +19,45 @@ set mouse=a
 
 " plug plugins go here {{{
 call plug#begin('~/.config/nvim/plugged')
+Plug 'SirVer/ultisnips' " {{{ Snippet support
+" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
+
+if has('python') || has('python3')
+  " Trigger configuration. Do not use <tab> if you use
+  " https://github.com/Valloric/YouCompleteMe
+  let g:UltiSnipsExpandTrigger="<tab>"
+  let g:UltiSnipsJumpForwardTrigger="<tab>"
+
+  " packadd ultisnips
+
+  " Completor SHOULD BE opened automatically
+  " Completor and ultisnips to reuse TAB key
+  " tab to trigger snip -> jump to next placeholder -> next completion or
+  " insert a plain tab char
+  fun! Tab_Or_Complete() " {{{
+    call UltiSnips#ExpandSnippet()
+    if g:ulti_expand_res == 0
+      call UltiSnips#JumpForwards()
+      if g:ulti_jump_forwards_res == 0
+        if pumvisible()
+          return "\<C-n>"
+        else
+          return "\<TAB>"
+        endif
+      endif
+    endif
+    return ""
+  endf "}}}
+
+  au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=Tab_Or_Complete()<cr>"
+
+  " packadd ale.vim
+endif
+
+" if you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+" }}}
 Plug 'lervag/vimtex'  " {{{ Set up latex
 let g:tex_flavor = 'latex'
 let g:vimtex_view_method='zathura'
