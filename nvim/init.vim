@@ -28,6 +28,7 @@ if has('python') || has('python3')
   " https://github.com/Valloric/YouCompleteMe
   let g:UltiSnipsExpandTrigger="<tab>"
   let g:UltiSnipsJumpForwardTrigger="<tab>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-tab>"
 
   " packadd ultisnips
 

@@ -1,15 +1,23 @@
 snippet doc "Basic document declaration" b
-\documentclass{${1:article}}
+\documentclass[12pt, letterpaper]{${1:article}}
+\usepackage[utf8]{inputenc}
 
-${2:\usepackage{}}
+\title{${2:Document Title}}
+\author{Jim Hessin}
+\date{`date +"%B %e, %+4Y"`}
 
 \begin{document}
 	$0
 \end{document}
 endsnippet
 
+snippet pkg "Usepackage" b
+\usepackage[$1]{$2}
+$0
+endsnippet
+
 snippet beg "Create a new environment" b
-\begin{$1}$2
+\begin{$1}
 	$0
 \end{$1}
 endsnippet
