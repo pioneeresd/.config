@@ -35,7 +35,7 @@ text/x-changelog=nvim.desktop;
 application/x-xbel=atom.desktop;nvim.desktop;
 text/x-lua=atom.desktop;nvim.desktop;
 application/x-tint2-theme=tint2conf.desktop;
-application/pdf=evince.desktop;org.gnome.Evince.desktop;
+application/pdf=evince.desktop;org.gnome.Evince.desktop;userapp-zathura-CXPHB0.desktop;org.pwmt.zathura-pdf-mupdf.desktop;
 audio/mpeg=pragha.desktop;
 image/jpeg=nomacs.desktop;gimp.desktop;ristretto.desktop;
 application/x-asp=atom.desktop;nvim.desktop;
@@ -82,6 +82,7 @@ application/sql=atom.desktop;nvim.desktop;
 application/vnd.kde.kxmlguirc=atom.desktop;nvim.desktop;
 audio/mp4=pragha.desktop;
 text/x-chdr=atom.desktop;
+image/webp=firefox.desktop;
 
 [Default Applications]
 x-scheme-handler/http=firefox.desktop
@@ -103,5 +104,6 @@ image/jpeg=nomacs.desktop
 x-scheme-handler/mailto=userapp-Evolution-EYPC6Y.desktop
 text/x-qml=atom.desktop
 audio/mp4=pragha.desktop
-application/pdf=org.gnome.Evince.desktop
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop
 text/x-chdr=atom.desktop
+image/webp=firefox.desktop
