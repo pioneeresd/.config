@@ -87,19 +87,19 @@ exec --no-startup-id ~/.local/bin/dispsetup
 #set $firstMonitor DVI-I-1
 #set $secondMonitor DVI-D-1
 
-set $firstMonitor HDMI1
-set $secondMonitor HDMI2
+set $firstMonitor VGA-0
+set $secondMonitor DVI-0
 
-workspace 1 output $firstMonitor
-workspace 2 output $firstMonitor
-workspace 3 output $firstMonitor
-workspace 4 output $firstMonitor
+workspace 9 output $firstMonitor
+workspace 7 output $firstMonitor
 workspace 5 output $firstMonitor
-workspace 6 output $secondMonitor
-workspace 7 output $secondMonitor
-workspace 8 output $secondMonitor
-workspace 9 output $secondMonitor
+workspace 3 output $firstMonitor
+workspace 1 output $firstMonitor
 workspace 10 output $secondMonitor
+workspace 2 output $secondMonitor
+workspace 4 output $secondMonitor
+workspace 6 output $secondMonitor
+workspace 8 output $secondMonitor
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -187,7 +187,7 @@ mode "$mode_system" {
 bindsym $mod+Shift+r restart
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+# bindsym $mod+Shift+c reload
 
 
 
@@ -232,10 +232,13 @@ bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+# bindsym $mod+Shift+Left move left
+# bindsym $mod+Shift+Down move down
+# bindsym $mod+Shift+Up move up
+# bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Left move container to workspace prev; workspace prev
+bindsym $mod+Shift+Right move container to workspace next; workspace next
+
 
 
 
@@ -247,8 +250,10 @@ bindsym $mod+Shift+Right move right
 
 # next/previous workspace
 
-bindsym Mod1+Tab workspace next
-bindsym Mod1+Shift+Tab workspace prev
+# bindsym Mod1+Tab workspace next
+# bindsym Mod1+Shift+Tab workspace prev
+bindsym Mod1+Tab focus right
+bindsym Mod1+Shift+Tab focus left
 bindsym $mod+Tab workspace back_and_forth
 
 #navigate workspaces next / previous
@@ -267,7 +272,8 @@ for_window [urgent=latest] focus
 #####################################################################################################################
 
 # orientation for new workspaces
-default_orientation horizontal
+default_orientation vertical
+workspace_layout tabbed
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -451,7 +457,7 @@ exec_always --no-startup-id numlockx on
 exec --no-startup-id volumeicon
 
 #variety
-exec --no-startup-id variety
+exec--no-startup-id variety
 
 # clipman
 #exec --no-startup-id xfce4-clipman
@@ -483,6 +489,7 @@ exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 
 #conky
 bindsym $mod+c exec --no-startup-id conky-toggle
+# bindsym $mod+Shift+c exec --no-startup-id am-conkyzen
 bindsym control+mod1+Next exec --no-startup-id conky-rotate -n
 bindsym control+mod1+Prior exec --no-startup-id conky-rotate -p
 
@@ -535,7 +542,8 @@ bindsym control+mod1+p exec --no-startup-id pamac-manager
 #workspace related
 
 #workspace 1 related
-bindsym $mod+F1 exec --no-startup-id exo-open --launch webbrowser;focus
+# bindsym $mod+F1 exec --no-startup-id exo-open --launch webbrowser;focus
+bindsym $mod+F1 exec --no-startup-id firefox;focus
 #qwerty/azerty conflict with w
 # bindsym $mod+w exec --no-startup-id exo-open --launch webbrowser;focus
 bindsym control+mod1+f exec --no-startup-id firefox;focus
@@ -850,6 +858,12 @@ mode "$mode_gaps_outer" {
 exec_always --no-startup-id compton --config ~/.config/i3/compton.conf
 
 
+#####################################################################################################################
+#################                          nitrogen of i3wm                                          #################
+#####################################################################################################################
+
+#reload the backgrounds
+# exec_always --no-startup_id nitrogen --restore
 
 
 #####################################################################################################################
