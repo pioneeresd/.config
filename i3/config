@@ -199,7 +199,7 @@ bindsym $mod+Shift+c reload
 
 # kill focused window
 bindsym $mod+Shift+q kill
-bindsym $mod+q kill
+# bindsym $mod+q kill
 
 
 
