@@ -1,0 +1,6 @@
+# GIMP action-history
+
+(history-item "file-quit" 0)
+(history-item "file-save" 1)
+
+# end of action-history
