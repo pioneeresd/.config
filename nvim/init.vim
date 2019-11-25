@@ -19,9 +19,65 @@ set mouse=a
 
 " plug plugins go here {{{
 call plug#begin('~/.config/nvim/plugged')
-Plug 'lervag/vimtex'
-let g:tex_flavor='latex'
+Plug 'SirVer/ultisnips' " {{{ Snippet support
+" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
+
+if has('python') || has('python3')
+  " Trigger configuration. Do not use <tab> if you use
+  " https://github.com/Valloric/YouCompleteMe
+  let g:UltiSnipsExpandTrigger="<tab>"
+  let g:UltiSnipsJumpForwardTrigger="<tab>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-tab>"
+
+  " packadd ultisnips
+
+  " Completor SHOULD BE opened automatically
+  " Completor and ultisnips to reuse TAB key
+  " tab to trigger snip -> jump to next placeholder -> next completion or
+  " insert a plain tab char
+  fun! Tab_Or_Complete() " {{{
+    call UltiSnips#ExpandSnippet()
+    if g:ulti_expand_res == 0
+      call UltiSnips#JumpForwards()
+      if g:ulti_jump_forwards_res == 0
+        if pumvisible()
+          return "\<C-n>"
+        else
+          return "\<TAB>"
+        endif
+      endif
+    endif
+    return ""
+  endf "}}}
+
+  au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=Tab_Or_Complete()<cr>"
+
+  " packadd ale.vim
+endif
+
+" if you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+" }}}
+Plug 'lervag/vimtex'  " {{{ Set up latex
+let g:tex_flavor = 'latex'
 let g:vimtex_view_method='zathura'
+let g:vimtex_compiler_method='latexmk'
+let g:vimtex_compiler_latexmk={
+      \ 'backend' : 'nvim',
+      \ 'build_dir' : '',
+      \ 'callback' : 0,
+      \ 'continuous' : 1,
+      \ 'executable' : 'latexmk',
+      \ 'hooks' : [],
+      \ 'options' : [
+      \   '-verbose',
+      \   '-file-line-error',
+      \   '-synctex=1',
+      \   '-interaction=nonstopmode',
+      \ ]
+      \}
+" }}}
 Plug 'rust-lang/rust.vim'       " a standard rust plugin {{{
 " Provides Error checking through the syntastic plugin below
 " Also provides tags for the Tagbar plugin below
@@ -426,16 +482,22 @@ Plug 'w0rp/ale'                 " Async Lint Engine {{{
 " ale settings
 let g:ale_set_highlights = 1
 let g:airline#extensions#ale#enabled = 1
-let g:ale_cursor_detail = 1
+let g:ale_cursor_detail = 0
 let g:ale_close_preview_on_insert = 1
-let g:ale_set_balloons = 1
+let g:ale_set_balloons = 0
+" let g:ale_set_loclist = 0
+" let g:ale_open_list = 0
 let g:ale_fix_on_save = 1
 let g:ale_rust_rls_options = '--cli'
-let g:ale_linters = { 'rust': ['rls'] }
+let g:ale_linters = {
+      \ 'rust': ['rls'],
+      \ 'tex': [ 'lacheck' ],
+      \}
 let g:ale_rust_rls_toolchain = 'stable'
-let g:ale_fixer = { 'rust': ['cargo-fmt'],
-      \      'typescript': ['prettier', 'tslint', 'remove_trailing_lines', 'trim_whitespace']
-      \      }
+let g:ale_fixer = {
+      \ 'rust': ['cargo-fmt'],
+      \ 'typescript': ['prettier', 'tslint', 'remove_trailing_lines', 'trim_whitespace']
+      \ }
 
 " Enable completion where available.
 " This setting must be set before ALE is loaded.
@@ -460,21 +522,23 @@ Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-github'
 
 " LanguageServer client for NeoVim.
-Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+Plug 'autozimu/LanguageClient-neovim' ", { 'do': ':UpdateRemotePlugins' }
 
 augroup ncm
   au!
-  au BufReadPost *.rs setlocal filetype=rust
-  au BufEnter  *.toml,.gitignore  call ncm2#enable_for_buffer()
+  " au BufReadPost *.rs setlocal filetype=rust
+  " au BufEnter  *.toml,.gitignore  call ncm2#enable_for_buffer()
   au FileType * call ncm2#enable_for_buffer()
 augroup END
 
 set completeopt=noinsert,menuone,noselect
 
 let g:LanguageClient_serverCommands = {
+      \ 'vim': ['vim-language-server'],
       \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
       \ 'typescript': ['typescript-language-server', '--stdio'],
-      \ 'html': ['html-languageserver', '--stdio']
+      \ 'html': ['html-languageserver', '--stdio'],
+      \ 'tex': [ 'texlab' ],
       \ }
 
 let g:LanguageClient_autoStart = 1
@@ -548,7 +612,7 @@ endfunction
 
 augroup resCur
   au!
-  au BufWinEnter * call ResCur()
+  " au BufWinEnter * call ResCur()
 augroup END
 " }}}
 
@@ -613,6 +677,7 @@ set expandtab				" tabs are expanded to spaces
 " UI Config {{{
 " set guicursor=    " disable gui cursor for my backward system.
 set tw=79         " Set word wrap at 79 characters
+set formatoptions-=cro
 set number				" show line numbers
 set showcmd				" show command in bottom bar
 set cursorline				" highlight the current line
@@ -626,8 +691,7 @@ set hlsearch          " highlight matches
 " auto indent files on save/load
 augroup UI
   au!
-  au BufRead *.html,*.js,*.ts,*.rs,*.toml :normal gg=G
-  au BufNewFile,BufRead * setlocal formatoptions-=cro
+  " au BufRead *.html,*.js,*.ts,*.rs,*.toml :normal gg=G
   " spell check all md and txt files
   au FileType text,markdown :setlocal spell
 augroup END
@@ -642,7 +706,6 @@ set foldenable        " enable folding
 set foldlevelstart=2  " opening folds when opening a file
 set foldnestmax=10    " maximum number of nested folds
 
-" space open/closes folds 
 set foldmethod=syntax         " use syntax folding
 " }}}
 
@@ -657,8 +720,8 @@ set writebackup
 
 " This is to load package help from the different plugins
 " Not sure how it works yet.
-packloadall
-silent! helptags ALL
+" packloadall
+" silent! helptags ALL
 set modelines=1
 set modelineexpr
 " vim:foldmethod=marker:foldlevel=0

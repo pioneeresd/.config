@@ -1,1 +1,1 @@
-conky -c ~/.config/conky/AUR-ArcoLinux.conkyrc
+conky -c /home/jhessin/.conkyrc & sleep 1s
