@@ -248,8 +248,8 @@ bindsym $mod+Shift+Right move right
 
 # next/previous workspace
 
-bindsym Mod1+Tab workspace next
-bindsym Mod1+Shift+Tab workspace prev
+bindsym Mod1+Tab focus right
+bindsym Mod1+Shift+Tab focus left
 bindsym $mod+Tab workspace back_and_forth
 
 #navigate workspaces next / previous
@@ -269,6 +269,7 @@ for_window [urgent=latest] focus
 
 # orientation for new workspaces
 default_orientation horizontal
+workspace_layout tabbed
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -403,7 +404,7 @@ font pango:Noto Mono Regular 13
 
 #browser
 #exec --no-startup-id vivaldi-stable
-for_window [class="Vivaldi-stable"] focus
+# for_window [class="Vivaldi-stable"] focus
 
 #text-editor
 #exec --no-startup-id geany
@@ -536,7 +537,9 @@ bindsym control+mod1+p exec --no-startup-id pamac-manager
 #workspace related
 
 #workspace 1 related
-bindsym $mod+F1 exec --no-startup-id exo-open --launch webbrowser;focus
+# bindsym $mod+F1 exec --no-startup-id exo-open --launch webbrowser;focus
+bindsym $mod+F1 exec --no-startup-id firefox;focus
+
 #qwerty/azerty conflict with w
 # bindsym $mod+w exec --no-startup-id exo-open --launch webbrowser;focus
 bindsym control+mod1+f exec --no-startup-id firefox;focus
