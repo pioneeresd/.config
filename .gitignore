@@ -1,4 +1,6 @@
-variety/
-autostart/
-pulse/
-vivaldi/
+*
+**/*.*
+!i3
+!zathura
+!setup
+!nvim
