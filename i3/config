@@ -70,6 +70,7 @@ set $right semicolon
 #exec --no-startup-id xrandr --output DVI-D-1 --right-of DVI-I-1 --auto
 #exec --no-startup-id xrandr --output HDMI2 --right-of HDMI1 --auto
 exec --no-startup-id ~/.local/bin/dispsetup
+exec --no-startup-id ~/.local/bin/dvp
 
 
 # my current setup
@@ -87,8 +88,8 @@ exec --no-startup-id ~/.local/bin/dispsetup
 #set $firstMonitor DVI-I-1
 #set $secondMonitor DVI-D-1
 
-set $firstMonitor HDMI1
-set $secondMonitor HDMI2
+set $firstMonitor VGA-0
+set $secondMonitor DVI-0
 
 workspace 1 output $firstMonitor
 workspace 2 output $firstMonitor
@@ -102,28 +103,28 @@ workspace 9 output $secondMonitor
 workspace 10 output $secondMonitor
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
+bindsym $mod+7 workspace 1
+bindsym $mod+5 workspace 2
 bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace 4
+bindsym $mod+9 workspace 5
+bindsym $mod+0 workspace 6
+bindsym $mod+2 workspace 7
+bindsym $mod+4 workspace 8
+bindsym $mod+6 workspace 9
+bindsym $mod+8 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1; workspace 1
-bindsym $mod+Shift+2 move container to workspace 2; workspace 2
+bindsym $mod+Shift+7 move container to workspace 1; workspace 1
+bindsym $mod+Shift+5 move container to workspace 2; workspace 2
 bindsym $mod+Shift+3 move container to workspace 3; workspace 3
-bindsym $mod+Shift+4 move container to workspace 4; workspace 4
-bindsym $mod+Shift+5 move container to workspace 5; workspace 5
-bindsym $mod+Shift+6 move container to workspace 6; workspace 6
-bindsym $mod+Shift+7 move container to workspace 7; workspace 7
-bindsym $mod+Shift+8 move container to workspace 8; workspace 8
-bindsym $mod+Shift+9 move container to workspace 9; workspace 9
-bindsym $mod+Shift+0 move container to workspace 10; workspace 10
+bindsym $mod+Shift+1 move container to workspace 4; workspace 4
+bindsym $mod+Shift+9 move container to workspace 5; workspace 5
+bindsym $mod+Shift+0 move container to workspace 6; workspace 6
+bindsym $mod+Shift+2 move container to workspace 7; workspace 7
+bindsym $mod+Shift+4 move container to workspace 8; workspace 8
+bindsym $mod+Shift+6 move container to workspace 9; workspace 9
+bindsym $mod+Shift+8 move container to workspace 10; workspace 10
 
 
 
@@ -198,7 +199,7 @@ bindsym $mod+Shift+c reload
 
 # kill focused window
 bindsym $mod+Shift+q kill
-bindsym $mod+q kill
+# bindsym $mod+q kill
 
 
 
@@ -247,8 +248,8 @@ bindsym $mod+Shift+Right move right
 
 # next/previous workspace
 
-bindsym Mod1+Tab workspace next
-bindsym Mod1+Shift+Tab workspace prev
+bindsym Mod1+Tab focus right
+bindsym Mod1+Shift+Tab focus left
 bindsym $mod+Tab workspace back_and_forth
 
 #navigate workspaces next / previous
@@ -268,6 +269,7 @@ for_window [urgent=latest] focus
 
 # orientation for new workspaces
 default_orientation horizontal
+workspace_layout tabbed
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -402,7 +404,7 @@ font pango:Noto Mono Regular 13
 
 #browser
 #exec --no-startup-id vivaldi-stable
-for_window [class="Vivaldi-stable"] focus
+# for_window [class="Vivaldi-stable"] focus
 
 #text-editor
 #exec --no-startup-id geany
@@ -535,7 +537,9 @@ bindsym control+mod1+p exec --no-startup-id pamac-manager
 #workspace related
 
 #workspace 1 related
-bindsym $mod+F1 exec --no-startup-id exo-open --launch webbrowser;focus
+# bindsym $mod+F1 exec --no-startup-id exo-open --launch webbrowser;focus
+bindsym $mod+F1 exec --no-startup-id firefox;focus
+
 #qwerty/azerty conflict with w
 # bindsym $mod+w exec --no-startup-id exo-open --launch webbrowser;focus
 bindsym control+mod1+f exec --no-startup-id firefox;focus

@@ -1,4 +1,8 @@
-variety/
-autostart/
-pulse/
-vivaldi/
+*
+!i3
+!zathura
+!setup
+!nvim
+!mimeapps.list
+!yay
+!xfce4
