@@ -48,4 +48,3 @@ cd ~/.local/bin
 gfetch `hostname`
 
 cd ~/.config
-gfetch `hostname`
