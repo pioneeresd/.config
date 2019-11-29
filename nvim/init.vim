@@ -688,6 +688,7 @@ set shiftwidth=2      " set the tab stops to 2
 set showmatch         " highlight matching [{()}]
 set incsearch         " search as characters are entered
 set hlsearch          " highlight matches
+set clipboard+=unnamedplus " Use standard clipboard for yank and paste
 " auto indent files on save/load
 augroup UI
   au!
