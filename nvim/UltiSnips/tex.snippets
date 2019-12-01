@@ -1,12 +1,16 @@
 snippet doc "Basic document declaration" b
-\documentclass[12pt, letterpaper]{${1:article}}
+\documentclass[letterpaper,12pt]{${1:beamer}}
+
+% PREAMBLE
 \usepackage[utf8]{inputenc}
 
 \title{${2:Document Title}}
 \author{Jim Hessin}
 \date{`date +"%B %e, %+4Y"`}
+% -- END PREAMBLE
 
 \begin{document}
+	\maketitle
 	${VISUAL}$0
 \end{document}
 endsnippet
