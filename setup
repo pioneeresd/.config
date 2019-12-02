@@ -18,8 +18,8 @@ cd ~/.config
 git init
 git remote add origin git@github.com:jhessin/.config 
 git fetch
-git reset origin/`hostname`
-git push -u origin `hostname`
+git reset origin/master
+git push -u origin master
 
 yay -Syu --noconfirm
 
