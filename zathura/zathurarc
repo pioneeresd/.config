@@ -1,7 +1,6 @@
 set selection-clipboard clipboard
 set window-title-home-tilde true
 set statusbar-home-tilde true
-set recolor
 
 set font "monospace normal 22"
 
