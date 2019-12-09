@@ -15,6 +15,15 @@ snippet doc "Basic document declaration" b
 \end{document}
 endsnippet
 
+snippet sty "Style template"
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{$1}[`date +"%4Y/%M/%D"`]
+
+$0
+
+\endinput
+endsnippet
+
 snippet pkg "Usepackage" b
 \usepackage[$1]{$2}
 $0
@@ -42,6 +51,10 @@ snippet u "Underline text"
 \underline{$1${VISUAL}} $0
 endsnippet
 
+snippet t "typewriter font"
+\texttt{$1:${VISUAL}} $0
+endsnippet	
+
 snippet bu "Bold Underlined"
 \textbf{\underline{$1${VISUAL}}} $0
 endsnippet
@@ -50,12 +63,32 @@ snippet bi "bold italic"
 \textbf{\textit{$1${VISUAL}}} $0
 endsnippet
 
+snippet bt "Bold typewriter"
+\textbf{\texttt{$1${VISUAL}}} $0
+endsnippet
+
 snippet iu "Italic underlined"
 \textit{\underline{$1${VISUAL}}} $0
 endsnippet
 
+snippet it "Italic typewriter"
+\textit{\texttt{$1${VISUAL}}} $0
+endsnippet
+
+snippet ut "Underline typewriter"
+\underline{\texttt{$1${VISUAL}}} $0
+endsnippet
+	
 snippet biu "bold italic underline"
 \textbf{\textit{\underline{$1${VISUAL}}}} $0
+endsnippet
+
+snippet bit "bold italic typewriter"
+\textbf{\textit{\texttt{$1${VISUAL}}}} $0
+endsnippet
+
+snippet iut "italic underline typewriter" $0
+\textit{\underline{\texttt{$1${VISUAL}}}} $0
 endsnippet
 
 snippet e "Emphasize"
@@ -63,9 +96,14 @@ snippet e "Emphasize"
 endsnippet
 
 snippet img "Insert an image"
-\includegraphics{$1} $0
+\Centering \includegraphics[height=20px,width=30px]{$1} & ${1/.*/\u$0/} \\\\
 endsnippet
 
 snippet itm "An item" b
 \item $0	
 endsnippet
+
+snippet c "Centering"
+\Centering $0
+endsnippet
+	

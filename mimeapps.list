@@ -83,6 +83,7 @@ application/vnd.kde.kxmlguirc=atom.desktop;nvim.desktop;
 audio/mp4=pragha.desktop;
 text/x-chdr=atom.desktop;
 image/webp=firefox.desktop;
+application/nbib=nvim.desktop;
 
 [Default Applications]
 x-scheme-handler/http=firefox.desktop
