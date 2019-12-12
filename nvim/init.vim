@@ -19,6 +19,9 @@ set mouse=a
 
 " plug plugins go here {{{
 call plug#begin('~/.config/nvim/plugged')
+Plug 'thinca/vim-template' " A template plugin {{{
+
+" }}}
 Plug 'SirVer/ultisnips' " {{{ Snippet support
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
