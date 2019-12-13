@@ -19,6 +19,7 @@ set mouse=a
 
 " plug plugins go here {{{
 call plug#begin('~/.config/nvim/plugged')
+Plug 'gisphm/vim-gitignore' " Syntax highlighting and snippets
 Plug 'thinca/vim-template' " A template plugin {{{
 
 " }}}
@@ -579,7 +580,7 @@ let g:statusline_enabled = 1
 "Turn on full paths
 let g:statusline_fullpath = 1
 " }}}
-Plug 'ervandew/supertab'    " Use tab for completion
+" Plug 'ervandew/supertab'    " Use tab for completion
 Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }  " Preview markdown files. {{{
 filetype plugin on
 "Uncomment to override defaults:
