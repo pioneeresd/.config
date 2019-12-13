@@ -19,7 +19,10 @@ set mouse=a
 
 " plug plugins go here {{{
 call plug#begin('~/.config/nvim/plugged')
-Plug 'gisphm/vim-gitignore' " Syntax highlighting and snippets
+Plug 'gisphm/vim-gitignore' " Syntax highlighting and snippets {{{
+
+let g:UltiSnipsEnableSnipMate = 0 " Disable SnipMate snippets
+" }}}
 Plug 'thinca/vim-template' " A template plugin {{{
 
 " }}}
