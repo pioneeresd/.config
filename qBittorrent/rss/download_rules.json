@@ -1,10 +1,30 @@
 {
+    "My Hero Academia": {
+        "addPaused": null,
+        "affectedFeeds": [
+            "https://www.anirena.com/rss.php?s=my%20hero%20academia"
+        ],
+        "assignedCategory": "TV",
+        "createSubfolder": null,
+        "enabled": true,
+        "episodeFilter": "4x1-;",
+        "ignoreDays": 0,
+        "lastMatch": "",
+        "mustContain": "Dual-Audio",
+        "mustNotContain": "",
+        "previouslyMatchedEpisodes": [
+        ],
+        "savePath": "",
+        "smartFilter": true,
+        "useRegex": false
+    },
     "Titans": {
         "addPaused": null,
         "affectedFeeds": [
             "https://eztv.io/ezrss.xml"
         ],
         "assignedCategory": "TV",
+        "createSubfolder": null,
         "enabled": true,
         "episodeFilter": "",
         "ignoreDays": 0,

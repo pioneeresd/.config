@@ -542,13 +542,16 @@ set completeopt=noinsert,menuone,noselect
 
 let g:LanguageClient_serverCommands = {
       \ 'vim': ['vim-language-server'],
-      \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+      \ 'rust': ['rustup', 'run', 'stable', 'rls'],
       \ 'typescript': ['typescript-language-server', '--stdio'],
       \ 'html': ['html-languageserver', '--stdio'],
       \ 'tex': [ 'texlab' ],
       \ }
 
 let g:LanguageClient_autoStart = 1
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 " }}}
 Plug 'tpope/vim-fugitive' " A Git wrapper so awesome it should be illegal {{{
 " I'm not going to lie to you; fugitive.vim may very well be the best Git wrapper of all time. Check out these features:
