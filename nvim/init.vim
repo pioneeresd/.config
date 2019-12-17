@@ -67,6 +67,14 @@ endif
 let g:UltiSnipsEditSplit="vertical"
 " }}}
 Plug 'lervag/vimtex'  " {{{ Set up latex
+
+Plug 'matze/vim-tex-fold' " folding of tex files
+
+let g:tex_fold_additional_envs = [
+      \ 'itemize',
+      \ 'longtable',
+      \ 'enumerate',
+      \]
 let g:tex_flavor = 'latex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_compiler_method='latexmk'
