@@ -67,6 +67,14 @@ endif
 let g:UltiSnipsEditSplit="vertical"
 " }}}
 Plug 'lervag/vimtex'  " {{{ Set up latex
+
+Plug 'matze/vim-tex-fold' " folding of tex files
+
+let g:tex_fold_additional_envs = [
+      \ 'itemize',
+      \ 'longtable',
+      \ 'enumerate',
+      \]
 let g:tex_flavor = 'latex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_compiler_method='latexmk'
@@ -542,13 +550,16 @@ set completeopt=noinsert,menuone,noselect
 
 let g:LanguageClient_serverCommands = {
       \ 'vim': ['vim-language-server'],
-      \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+      \ 'rust': ['rustup', 'run', 'stable', 'rls'],
       \ 'typescript': ['typescript-language-server', '--stdio'],
       \ 'html': ['html-languageserver', '--stdio'],
       \ 'tex': [ 'texlab' ],
       \ }
 
 let g:LanguageClient_autoStart = 1
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 " }}}
 Plug 'tpope/vim-fugitive' " A Git wrapper so awesome it should be illegal {{{
 " I'm not going to lie to you; fugitive.vim may very well be the best Git wrapper of all time. Check out these features:

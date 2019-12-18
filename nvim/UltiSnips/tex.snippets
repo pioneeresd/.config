@@ -1,18 +1,16 @@
 snippet doc "Basic document declaration" b
-\documentclass[letterpaper,12pt]{${1:beamer}}
-
-% PREAMBLE
-\usepackage[utf8]{inputenc}
-
-\title{${2:Document Title}}
-\author{Jim Hessin}
-\date{`date +"%B %e, %+4Y"`}
-% -- END PREAMBLE
-
+\documentclass{${1:article}}
 \begin{document}
-	\maketitle
 	${VISUAL}$0
 \end{document}
+endsnippet
+
+snippet author "Set author"
+\author{Jim Hessin}
+endsnippet
+
+snippet date "Enter today's date"
+\date{`date +"%B %e, %+4Y"`}
 endsnippet
 
 snippet sty "Style template"

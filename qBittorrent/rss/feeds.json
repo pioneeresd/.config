@@ -1,4 +1,8 @@
 {
+    "AniRena Torrent Tracker": {
+        "uid": "{c3eecda0-4c33-438d-bca5-72d336d076da}",
+        "url": "https://www.anirena.com/rss.php?s=my%20hero%20academia"
+    },
     "TV Torrents RSS feed - EZTV": {
         "uid": "{4531002d-d8ba-4e1f-be65-2a12823e8017}",
         "url": "https://eztv.io/ezrss.xml"
