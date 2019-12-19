@@ -537,7 +537,11 @@ Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-github'
 
 " LanguageServer client for NeoVim.
-Plug 'autozimu/LanguageClient-neovim' ", { 'do': ':UpdateRemotePlugins' }
+Plug 'autozimu/LanguageClient-neovim' , {
+      \ 'branch': 'next',
+      \ 'do': 'bash install.sh',
+      \ }
+Plug 'junegunn/fzf'
 
 augroup ncm
   au!
@@ -554,9 +558,11 @@ let g:LanguageClient_serverCommands = {
       \ 'typescript': ['typescript-language-server', '--stdio'],
       \ 'html': ['html-languageserver', '--stdio'],
       \ 'tex': [ 'texlab' ],
+      \ 'ruby': ['solargraph', 'stdio']
       \ }
 
 let g:LanguageClient_autoStart = 1
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
