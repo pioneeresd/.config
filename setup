@@ -14,18 +14,25 @@ cat ~/.ssh/id_rsa.pub | xclip -sel clip
 echo "Please paste SSH key into github"
 read -n1 -r -p "Press space to continue..." key
 
+if [ ! -d ~/.local/bin ]; then
+  git clone git@github.com:jhessin/bin ~/.local/bin
+fi
+
+export PATH="$HOME/.local/bin:$PATH"
+
 cd ~/.config
-git init
-git remote add origin git@github.com:jhessin/.config 
-git fetch
-git reset origin/master
-git push -u origin master
+gmerge .config
 
 yay -Syu --noconfirm
 
 type nvim
 if [ ! $? ]; then
   yay -Sy neovim
+fi
+
+type nvimpager
+if [ ! $? ]; then
+  yay -Sy nvimpager
 fi
 
 type i3lock
@@ -44,17 +51,14 @@ if [ ! $? ]; then
   pip install --user neovim
 fi
 
-cd ~
-git init
-git remote add origin git@github.com:jhessin/dotfiles.git 
-git fetch
-git reset origin/master
-git push -u origin/master
-. .bashrc
-
-if [ ! -d ~/.local/bin ]; then
-  git clone git@github.com:jhessin/bin ~/.local/bin
+type gem
+if [ ! $? ]; then
+  yay -Sy rubygems
 fi
+
+cd ~
+gmerge dotfiles.git
+. .bashrc
 
 mkdir -p ~/Documents/github
 mkdir -p ~/Documents/bitbucket
