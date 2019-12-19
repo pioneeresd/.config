@@ -439,6 +439,9 @@ exec --no-startup-id qbittorrent
 # bluetooth
 #exec --no-startup-id blueberry-tray
 
+# xfce_panel
+exec --no-startup-id xfce4-panel
+
 # network
 exec --no-startup-id nm-applet
 
