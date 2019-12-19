@@ -70,7 +70,7 @@ set $right l
 #exec --no-startup-id xrandr --output DVI-D-1 --right-of DVI-I-1 --auto
 #exec --no-startup-id xrandr --output HDMI2 --right-of HDMI1 --auto
 exec --no-startup-id ~/.local/bin/dispsetup
-exec --no-startup-id ~/.local/bin/dvp
+exec --no-startup-id ~/.local/bin/kbdsetup
 
 
 # my current setup
