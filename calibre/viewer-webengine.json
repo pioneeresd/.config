@@ -1,0 +1,276 @@
+{
+  "local_storage": {
+    "search-bar-history-search-in-book": [
+      "sit"
+    ]
+  }, 
+  "main_window_geometry": {
+    "__class__": "bytearray", 
+    "__value__": "AdnQywADAAAAAAQJAAAAIwAAC3YAAAQVAAAECwAAACMAAAt0AAAEEwAAAAEAAAAAB4AAAAQLAAAAIwAAC3QAAAQT"
+  }, 
+  "main_window_state": {
+    "__class__": "bytearray", 
+    "__value__": "AAAA/wAAAAH9AAAAAgAAAAAAAAEAAAAD8fwCAAAAAfsAAAAQAHQAbwBjAC0AZABvAGMAawAAAAAAAAAD8QAAAJIA////AAAAAQAAAAAAAAAA/AIAAAAD+wAAABwAYgBvAG8AawBtAGEAcgBrAHMALQBkAG8AYwBrAAAAAAD/////AAAA5gD////7AAAAFgBsAG8AbwBrAHUAcAAtAGQAbwBjAGsAAAAAAP////8AAAByAP////sAAAAcAGkAbgBzAHAAZQBjAHQAbwByAC0AZABvAGMAawAAAAAA/////wAAABgA////AAAHagAAA/EAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAAAAAAAAQAAAB4AYQBjAHQAaQBvAG4AcwBfAHQAbwBvAGwAYgBhAHICAAAAAP////8AAAAAAAAAAA=="
+  }, 
+  "old_prefs_migrated": true, 
+  "session_data": {
+    "base_font_size": 40, 
+    "controls_help_shown_count": 2, 
+    "current_color_scheme": "black", 
+    "keyboard_shortcuts": {
+      "back": [
+        {
+          "altKey": true, 
+          "ctrlKey": false, 
+          "key": "ArrowLeft", 
+          "metaKey": false, 
+          "shiftKey": false
+        }, 
+        {
+          "altKey": false, 
+          "ctrlKey": false, 
+          "key": "ArrowLeft", 
+          "metaKey": false, 
+          "shiftKey": true
+        }, 
+        {
+          "altKey": true, 
+          "ctrlKey": false, 
+          "key": "h", 
+          "metaKey": false, 
+          "shiftKey": false
+        }
+      ], 
+      "down": [
+        {
+          "altKey": false, 
+          "ctrlKey": false, 
+          "key": "ArrowDown", 
+          "metaKey": false, 
+          "shiftKey": false
+        }, 
+        {
+          "altKey": false, 
+          "ctrlKey": false, 
+          "key": "j", 
+          "metaKey": false, 
+          "shiftKey": false
+        }
+      ], 
+      "end_of_book": [
+        {
+          "altKey": false, 
+          "ctrlKey": true, 
+          "key": "End", 
+          "metaKey": false, 
+          "shiftKey": false
+        }, 
+        {
+          "altKey": false, 
+          "ctrlKey": false, 
+          "key": "G", 
+          "metaKey": false, 
+          "shiftKey": true
+        }
+      ], 
+      "end_of_file": [
+        {
+          "altKey": false, 
+          "ctrlKey": true, 
+          "key": "ArrowDown", 
+          "metaKey": false, 
+          "shiftKey": false
+        }, 
+        {
+          "altKey": false, 
+          "ctrlKey": true, 
+          "key": "ArrowRight", 
+          "metaKey": false, 
+          "shiftKey": false
+        }, 
+        {
+          "altKey": false, 
+          "ctrlKey": false, 
+          "key": "End", 
+          "metaKey": false, 
+          "shiftKey": false
+        }, 
+        {
+          "altKey": false, 
+          "ctrlKey": true, 
+          "key": "j", 
+          "metaKey": false, 
+          "shiftKey": false
+        }, 
+        {
+          "altKey": false, 
+          "ctrlKey": true, 
+          "key": "l", 
+          "metaKey": false, 
+          "shiftKey": false
+        }
+      ], 
+      "forward": [
+        {
+          "altKey": true, 
+          "ctrlKey": false, 
+          "key": "ArrowRight", 
+          "metaKey": false, 
+          "shiftKey": false
+        }, 
+        {
+          "altKey": false, 
+          "ctrlKey": false, 
+          "key": "ArrowRight", 
+          "metaKey": false, 
+          "shiftKey": true
+        }, 
+        {
+          "altKey": true, 
+          "ctrlKey": false, 
+          "key": "l", 
+          "metaKey": false, 
+          "shiftKey": false
+        }
+      ], 
+      "next_match": [
+        {
+          "altKey": false, 
+          "ctrlKey": false, 
+          "key": "F3", 
+          "metaKey": false, 
+          "shiftKey": false
+        }, 
+        {
+          "altKey": false, 
+          "ctrlKey": false, 
+          "key": "n", 
+          "metaKey": false, 
+          "shiftKey": false
+        }
+      ], 
+      "pagedown": [
+        {
+          "altKey": false, 
+          "ctrlKey": false, 
+          "key": " ", 
+          "metaKey": false, 
+          "shiftKey": false
+        }, 
+        {
+          "altKey": false, 
+          "ctrlKey": false, 
+          "key": "PageDown", 
+          "metaKey": false, 
+          "shiftKey": false
+        }, 
+        {
+          "altKey": false, 
+          "ctrlKey": false, 
+          "key": "J", 
+          "metaKey": false, 
+          "shiftKey": true
+        }
+      ], 
+      "pageup": [
+        {
+          "altKey": false, 
+          "ctrlKey": false, 
+          "key": "PageUp", 
+          "metaKey": false, 
+          "shiftKey": false
+        }, 
+        {
+          "altKey": false, 
+          "ctrlKey": false, 
+          "key": "K", 
+          "metaKey": false, 
+          "shiftKey": true
+        }
+      ], 
+      "previous_match": [
+        {
+          "altKey": false, 
+          "ctrlKey": false, 
+          "key": "F3", 
+          "metaKey": false, 
+          "shiftKey": true
+        }, 
+        {
+          "altKey": false, 
+          "ctrlKey": false, 
+          "key": "N", 
+          "metaKey": false, 
+          "shiftKey": true
+        }
+      ], 
+      "search_for_selection": [
+        {
+          "altKey": false, 
+          "ctrlKey": true, 
+          "key": "s", 
+          "metaKey": false, 
+          "shiftKey": false
+        }, 
+        {
+          "altKey": false, 
+          "ctrlKey": false, 
+          "key": "*", 
+          "metaKey": false, 
+          "shiftKey": false
+        }
+      ], 
+      "toggle_toc": [
+        {
+          "altKey": false, 
+          "ctrlKey": true, 
+          "key": "t", 
+          "metaKey": false, 
+          "shiftKey": false
+        }, 
+        {
+          "altKey": false, 
+          "ctrlKey": false, 
+          "key": "Tab", 
+          "metaKey": false, 
+          "shiftKey": false
+        }
+      ], 
+      "up": [
+        {
+          "altKey": false, 
+          "ctrlKey": false, 
+          "key": "ArrowUp", 
+          "metaKey": false, 
+          "shiftKey": false
+        }, 
+        {
+          "altKey": false, 
+          "ctrlKey": false, 
+          "key": "k", 
+          "metaKey": false, 
+          "shiftKey": false
+        }
+      ]
+    }, 
+    "read_mode": "flow", 
+    "standalone_font_settings": {}, 
+    "standalone_misc_settings": {
+      "remember_last_read": true, 
+      "remember_window_geometry": false, 
+      "save_annotations_in_ebook": true, 
+      "singleinstance": false
+    }, 
+    "standalone_recently_opened": [
+      {
+        "authors": [
+          "Jim Hessin"
+        ], 
+        "key": "/home/jhessin/Documents/bitbucket/calibre/Jim Hessin/Live Streaming of aerial photography and drone filming (5)/Live Streaming of aerial photography and d - Jim Hessin.epub", 
+        "pathtoebook": "/home/jhessin/Documents/bitbucket/calibre/Jim Hessin/Live Streaming of aerial photography and drone filming (5)/Live Streaming of aerial photography and d - Jim Hessin.epub", 
+        "timestamp": "2019-11-30T13:54:00.746Z", 
+        "title": "Live Streaming of aerial photography and drone filming"
+      }
+    ]
+  }
+}

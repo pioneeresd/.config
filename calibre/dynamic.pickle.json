@@ -1,0 +1,12 @@
+{
+  "add books dialog dir": "/home/jhessin/Documents/github/LaTeXPractice", 
+  "database location dialog": "/home/jhessin/Documents/bitbucket/calibre", 
+  "notified-version-updates": {
+    "__class__": "set", 
+    "__value__": [
+      "4.5"
+    ]
+  }, 
+  "welcome_wizard_device": "iphone", 
+  "welcome_wizard_was_run": true
+}
