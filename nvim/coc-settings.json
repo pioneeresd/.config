@@ -1,0 +1,16 @@
+{
+    "solargraph.commandPath": "/home/jhessin/.gem/ruby/2.6.0/bin/solargraph",
+    "solargraph.useBundler": false,
+    "solargraph.checkGemVersion": true,
+    "solargraph.diagnostics": false,
+    "solargraph.completion": true,
+    "solargraph.hover": true,
+    "solargraph.autoformat": true,
+    "solargraph.formatting": true,
+    "solargraph.symbols": true,
+    "solargraph.definitions": true,
+    "solargraph.rename": true,
+    "solargraph.references": true,
+    "solargraph.folding": true,
+    "solargraph.transport": "stdio"
+}

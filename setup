@@ -56,6 +56,11 @@ if [ ! $? ]; then
   yay -Sy rubygems
 fi
 
+type irb
+if [ ! $? ]; then
+  yay -Sy ruby-irb
+fi
+
 cd ~
 gmerge dotfiles.git
 . .bashrc
