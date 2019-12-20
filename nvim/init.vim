@@ -511,7 +511,8 @@ let g:ale_linters = {
 let g:ale_rust_rls_toolchain = 'stable'
 let g:ale_fixer = {
       \ 'rust': ['cargo-fmt'],
-      \ 'typescript': ['prettier', 'tslint', 'remove_trailing_lines', 'trim_whitespace']
+      \ 'typescript': ['prettier', 'tslint', 'remove_trailing_lines', 'trim_whitespace'],
+      \ 'ruby': ['rubocop'],
       \ }
 
 " Enable completion where available.
@@ -527,45 +528,8 @@ let g:airline#extensions#ale#warning_symbol = "⚠"
 
 set omnifunc=ale#completion#OmniFunc
 " }}}
-" Autocomplete! {{{
-" A dependency
-Plug 'roxma/nvim-yarp'
-
-" v2 of the nvim-completion-manager and it's plugins.
-Plug 'ncm2/ncm2'
-Plug 'ncm2/ncm2-path'
-Plug 'ncm2/ncm2-github'
-
-" LanguageServer client for NeoVim.
-Plug 'autozimu/LanguageClient-neovim' , {
-      \ 'branch': 'next',
-      \ 'do': 'bash install.sh',
-      \ }
-Plug 'junegunn/fzf'
-
-augroup ncm
-  au!
-  " au BufReadPost *.rs setlocal filetype=rust
-  " au BufEnter  *.toml,.gitignore  call ncm2#enable_for_buffer()
-  au FileType * call ncm2#enable_for_buffer()
-augroup END
-
-set completeopt=noinsert,menuone,noselect
-
-let g:LanguageClient_serverCommands = {
-      \ 'vim': ['vim-language-server'],
-      \ 'rust': ['rustup', 'run', 'stable', 'rls'],
-      \ 'typescript': ['typescript-language-server', '--stdio'],
-      \ 'html': ['html-languageserver', '--stdio'],
-      \ 'tex': [ 'texlab' ],
-      \ 'ruby': ['solargraph', 'stdio']
-      \ }
-
-let g:LanguageClient_autoStart = 1
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+" {{{ Autocomplete
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " }}}
 Plug 'tpope/vim-fugitive' " A Git wrapper so awesome it should be illegal {{{
 " I'm not going to lie to you; fugitive.vim may very well be the best Git wrapper of all time. Check out these features:
