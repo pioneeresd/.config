@@ -4,7 +4,6 @@ application/xml=atom.desktop;nvim.desktop;
 application/x-shellscript=atom.desktop;nvim.desktop;
 x-scheme-handler/http=exo-web-browser.desktop
 x-scheme-handler/https=exo-web-browser.desktop
-x-scheme-handler/mailto=exo-mail-reader.desktop
 x-scheme-handler/trash=exo-file-manager.desktop
 inode/directory=exo-file-manager.desktop;
 text/x-matlab=atom.desktop;nvim.desktop;
@@ -108,3 +107,4 @@ audio/mp4=pragha.desktop
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop
 text/x-chdr=atom.desktop
 image/webp=firefox.desktop
+

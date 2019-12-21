@@ -509,7 +509,7 @@ let g:ale_linters = {
       \ 'tex': [ 'lacheck' ],
       \}
 let g:ale_rust_rls_toolchain = 'stable'
-let g:ale_fixer = {
+let g:ale_fixers = {
       \ 'rust': ['cargo-fmt'],
       \ 'typescript': ['prettier', 'tslint', 'remove_trailing_lines', 'trim_whitespace'],
       \ 'ruby': ['rubocop'],
