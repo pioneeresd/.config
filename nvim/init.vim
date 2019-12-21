@@ -665,7 +665,6 @@ set expandtab				" tabs are expanded to spaces
 " UI Config {{{
 " set guicursor=    " disable gui cursor for my backward system.
 set tw=79         " Set word wrap at 79 characters
-set formatoptions-=cro
 set number				" show line numbers
 set showcmd				" show command in bottom bar
 set cursorline				" highlight the current line
@@ -683,6 +682,7 @@ augroup UI
   " au BufRead *.html,*.js,*.ts,*.rs,*.toml :normal gg=G
   " spell check all md and txt files
   au FileType text,markdown :setlocal spell
+  au BufNewFile,BufRead * setlocal formatoptions-=ro
 augroup END
 " }}}
 
