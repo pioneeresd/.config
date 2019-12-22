@@ -10,5 +10,5 @@ it twice - once to copy the key and paste it into your github account, then
 again to actually make the changes.
 
 ```bash
-curl https://raw.githubusercontent.com/$USER/.config/master/setup | bash
+curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/$USER/.config/master/setup | bash
 ```
