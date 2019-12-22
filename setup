@@ -1,10 +1,11 @@
 #!/bin/bash
 
-pacman -Rdd libdmx libxxf86dga &&
+sudo pacman -Rdd libdmx libxxf86dga &&
 upall &&
-pacman -Rdd xorgproto
+sudo pacman -Rdd xorgproto
 
-yay -Syy xclip neovim nvimpager i3lock xidlehook python-pip rubygems ruby-irb
+yay -Syy --noconfirm xclip neovim nvimpager i3lock xidlehook python-pip rubygems ruby-irb
+
 pip install --user neovim
 
 if [ ! -e ~/.ssh/id_rsa.pub ]; then
