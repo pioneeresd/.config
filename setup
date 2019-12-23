@@ -1,5 +1,7 @@
 #!/bin/bash
 
+localectl set-keymap --no-convert dvorak-programmer
+
 sudo pacman -Rdd libdmx libxxf86dga &&
 upall &&
 sudo pacman -Rdd xorgproto
