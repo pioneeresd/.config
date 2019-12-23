@@ -3,7 +3,7 @@
 localectl set-keymap --no-convert dvorak-programmer
 
 sudo pacman -Rdd libdmx libxxf86dga &&
-upall &&
+yay -Syu --noconfirm &&
 sudo pacman -Rdd xorgproto
 
 yay -Syy --noconfirm xclip neovim nvimpager i3lock xidlehook python-pip rubygems ruby-irb
