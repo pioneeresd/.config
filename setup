@@ -1,24 +1,5 @@
 #!/bin/bash
-
-localectl set-keymap --no-convert dvorak-programmer
-
-sudo pacman -Rdd libdmx libxxf86dga &&
-yay -Syu --noconfirm &&
-sudo pacman -Rdd xorgproto
-
-yay -Syy --noconfirm xclip neovim nvimpager i3lock xidlehook python-pip rubygems ruby-irb
-
-pip install --user neovim
-
-if [ ! -e ~/.ssh/id_rsa.pub ]; then
-  ssh-keygen -f ~/.ssh/id_rsa -q -N ""
-  eval `ssh-agent`
-  ssh-add ~/.ssh/id_rsa
-fi
-
-cat ~/.ssh/id_rsa.pub | xclip -sel clip
-echo "Please paste SSH key into github"
-read -n1 -r -p "Press space to continue..." key
+# Setup
 
 # Copy my personal bin folder
 rm -rf ~/.local/bin
@@ -27,7 +8,6 @@ export PATH="$HOME/.local/bin:$PATH"
 
 cd ~/.config
 gmerge .config
-$HOME/.config/nvim/install.sh
 
 cd ~
 gmerge dotfiles.git
