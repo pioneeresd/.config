@@ -3,6 +3,7 @@
 # Install
 
 # First update everything
+sudo pacman -Scc --noconfirm
 sudo pacman -Rdd --noconfirm libdmx libxxf86dga
 sudo pacman -Syyu --noconfirm --needed --noredownload --norebuild --skipchecksums --skippgpcheck &&
 sudo pacman -Rdd --noconfirm xorgproto
