@@ -3,18 +3,21 @@
 # Install
 
 # First update everything
-sudo pacman -Rdd libdmx libxxf86dga &&
-yay -Syu --noconfirm &&
-sudo pacman -Rdd xorgproto
+sudo pacman -Rdd --noconfirm libdmx libxxf86dga
+sudo pacman -Syyu --noconfirm --needed --noredownload --norebuild --skipchecksums --skippgpcheck &&
+sudo pacman -Rdd --noconfirm xorgproto
+yay -Syu --noconfirm --needed --noredownload --norebuild --skipchecksums --skippgpcheck
 
 # Then install the necessary programs
-get="yay -Syy --noconfirm"
-$get libreoffice-fresh
-$get neovim
-$get python-pip
-pip install --user neovim
-$get i3lock
-$get rubygems
-$get ruby-irb
-
-$HOME/.config/nvim/install.sh
+get="yay -S --noconfirm --needed --noredownload --norebuild"
+$get libreoffice-fresh &&
+$get neovim &&
+$get python &&
+$get python-pip &&
+pip install --user neovim &&
+$get nvimpager-git &&
+$HOME/.config/nvim/install.sh &&
+$get rubygems &&
+$get ruby-irb &&
+$get i3lock &&
+$get xidlehook 
