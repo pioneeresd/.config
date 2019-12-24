@@ -526,6 +526,28 @@ let g:airline#extensions#ale#error_symbol = "✗"
 let g:ale_sign_warning = "⚠"
 let g:airline#extensions#ale#warning_symbol = "⚠"
 
+" keybinds --
+nmap <F2> <Plug>(coc-rename)
+" remap for format selected line(s)
+nmap <localleader>f <Plug>(coc-format-selected)
+xmap <localleader>f <Plug>(coc-format-selected)
+" remap for do codeAction of selected region
+xmap <localleader>a <Plug>(coc-codeaction-selected)
+nmap <localleader>a <Plug>(coc-codeaction-selected)
+" remap for codeaction current line
+nmap <localleader>ac <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+nmap <localleader>qf <Plug>(coc-fix-current)
+
+" Mappings for function text objects
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+
+" use :Format to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
 set omnifunc=ale#completion#OmniFunc
 " }}}
 " {{{ Autocomplete
