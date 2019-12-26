@@ -1,4 +1,23 @@
 {
+    "Agents of Shield": {
+        "addPaused": null,
+        "affectedFeeds": [
+            "https://eztv.io/ezrss.xml"
+        ],
+        "assignedCategory": "TV",
+        "createSubfolder": null,
+        "enabled": true,
+        "episodeFilter": "",
+        "ignoreDays": 0,
+        "lastMatch": "",
+        "mustContain": "Agents of Shield",
+        "mustNotContain": "",
+        "previouslyMatchedEpisodes": [
+        ],
+        "savePath": "",
+        "smartFilter": true,
+        "useRegex": false
+    },
     "My Hero Academia": {
         "addPaused": null,
         "affectedFeeds": [
