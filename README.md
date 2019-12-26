@@ -1,6 +1,8 @@
 # .config
 This sets up this, my dotfiles, and my .local/bin directory as well as installing several required packages.
 
+Also note that I am assuming the use of Arcolinux or similar to start using
+these repos.
 You should fork these repositories, set $USER to your github username and run
 the following commands.
 
