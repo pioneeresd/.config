@@ -2,6 +2,7 @@
 
 # Preconfig
 if [ $USER == 'jhessin' ]; then
+  localectl set-x11-keymap us pc105 dvp compose:102,numpad:shift3,kpdl:semi,keypad:atm,caps:escape
   localectl set-keymap --no-convert dvorak-programmer
 fi
 
