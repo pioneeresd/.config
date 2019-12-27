@@ -16,7 +16,7 @@ $get neovim &&
 $get python &&
 $get python-pip &&
 pip install --user neovim &&
-$get nvimpager-git &&
+$get nvimpager &&
 $HOME/.config/nvim/install.sh &&
 $get rubygems &&
 $get ruby-irb &&
