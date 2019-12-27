@@ -11,7 +11,7 @@ yay -Syu --noconfirm --needed --noredownload --norebuild &&
 
 # Then install the necessary programs
 get="yay -S --noconfirm --needed --noredownload --norebuild" &&
-$get libreoffice-fresh &&
+# $get libreoffice-fresh &&
 $get neovim &&
 $get python &&
 $get python-pip &&
