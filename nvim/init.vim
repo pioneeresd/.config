@@ -19,6 +19,21 @@ set mouse=a
 
 " plug plugins go here {{{
 call plug#begin('~/.config/nvim/plugged')
+Plug 'OmniSharp/omnisharp-vim'        " c# Programming support
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'vim-syntastic/syntastic'        " Syntax checking plugin
+" Plug 'flazz/vim-colorschemes'                 " Color scheme manager {{{
+" Plug 'altercation/vim-colors-solarized' " Solarized color scheme
+set background=dark
+colorscheme darkblue
+" }}}
+Plug 'tpope/vim-dispatch'             " async builder and tester {{{
+Plug 'radenling/vim-dispatch-neovim'  " neovim support
+" }}}
+Plug 'skwp/vim-easymotion'            " Highlight and move anywhere {{{
+" let g:EasyMotion_leader_key='<Leader>'
+" }}}
+" Plug 'terryma/vim-multiple-cursors'
 Plug 'gisphm/vim-gitignore' " Syntax highlighting and snippets {{{
 
 let g:UltiSnipsEnableSnipMate = 0 " Disable SnipMate snippets
@@ -580,7 +595,7 @@ let g:statusline_fugitive = 1
 "Do Not Load RVM
 let g:statusline_rvm = 0
 "Do Not Load Syntastic
-let g:statusline_syntastic = 0
+let g:statusline_syntastic = 1
 "Turn statusline off
 let g:statusline_enabled = 1
 "Turn on full paths
@@ -622,7 +637,7 @@ endfunction
 
 augroup resCur
   au!
-  " au BufWinEnter * call ResCur()
+  au BufWinEnter * call ResCur()
 augroup END
 " }}}
 

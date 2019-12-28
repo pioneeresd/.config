@@ -27,6 +27,11 @@ eyes@0.1.x:
   resolved "https://registry.yarnpkg.com/eyes/-/eyes-0.1.8.tgz#62cf120234c683785d902348a800ef3e0cc20bc0"
   integrity sha1-Ys8SAjTGg3hdkCNIqADvPgzCC8A=
 
+gitignore@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/gitignore/-/gitignore-0.6.0.tgz#8518e39d1e12f896eb0971e0f8c982e616ed765e"
+  integrity sha1-hRjjnR4S+JbrCXHg+MmC5hbtdl4=
+
 ieee754@^1.1.8:
   version "1.1.13"
   resolved "https://registry.yarnpkg.com/ieee754/-/ieee754-1.1.13.tgz#ec168558e95aa181fd87d37f55c32bbcb6708b84"

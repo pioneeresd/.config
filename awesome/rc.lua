@@ -86,7 +86,7 @@ awful.layout.layouts = {
 myawesomemenu = {
    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
    { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor .. awesome.conffile },
+   { "edit config", function() awful.spawn("termite -e nvim ~/.config/awesome/rc.lua") end },
    { "restart", awesome.restart },
    { "quit", function() awesome.quit() end },
 }
@@ -235,10 +235,16 @@ root.buttons(gears.table.join(
 ))
 -- }}}
 
+blacklock = function()
+  awful.spawn("blacklock")
+end
+
 -- {{{ Key bindings
 globalkeys = gears.table.join(
     awful.key({ modkey,           }, "/",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
+    awful.key({ modkey,           }, "Escape", blacklock,
+              {description="lock the screen", group="awesome"}),
     awful.key({ "Control",  "Mod1"}, "Left",   awful.tag.viewprev,
               {description = "view previous", group = "tag"}),
     awful.key({ "Control",  "Mod1"}, "Right",  awful.tag.viewnext,
