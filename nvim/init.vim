@@ -19,7 +19,9 @@ set mouse=a
 
 " plug plugins go here {{{
 call plug#begin('~/.config/nvim/plugged')
-Plug 'OmniSharp/omnisharp-vim'        " c# Programming support
+Plug 'OmniSharp/omnisharp-vim'        " c# Programming support {{
+let g:OmniSharp_server_stdio = 1
+" }}
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'vim-syntastic/syntastic'        " Syntax checking plugin
 " Plug 'flazz/vim-colorschemes'                 " Color scheme manager {{{
