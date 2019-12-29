@@ -1,9 +1,17 @@
 #!/bin/bash
 
 # Preconfig
+
+mkdir -p $HOME/Documents/github $HOME/Documents/bitbucket\
+$HOME/Documents/heroku
+
+mkdir -p 
 if [ $USER == 'jhessin' ]; then
-  localectl set-x11-keymap us pc105 dvp compose:102,numpad:shift3,kpdl:semi,keypad:atm,caps:escape
-  localectl set-keymap --no-convert dvorak-programmer
+  git clone https://github.com/jhessin/dvp.git $HOME/Documents/github/dvp
+  cd $HOME/Documents/github/dvp
+  ./install.sh
+  cd
+  rm -rm $HOME/Documents/github/dvp
 fi
 
 yay -Syy --noconfirm xclip
