@@ -12,3 +12,5 @@ xfce4
 unity3d
 UnityHub
 sublime-text-3
+# Ignore github token for safety
+hub
