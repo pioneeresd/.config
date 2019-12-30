@@ -2,7 +2,7 @@
 " anything put them in here. Once you are done hit <Shift-ZZ> or :wq to
 " continue.
 " BASIC -PUT THIS FIRST!- {{{
-syntax enable 				" enable syntax processing 
+syntax enable 				" enable syntax processing
 nnoremap <space> <nop>
 
 let mapleader=" "           " leader is space
@@ -24,7 +24,7 @@ set mouse=a
 let g:UltiSnipsEnableSnipMate = 0 " Disable SnipMate snippets
 " }}}
 
-" }}}  
+" }}}
 
 " plug plugins go here {{{
 call plug#begin('~/.config/nvim/plugged')
@@ -56,9 +56,9 @@ Plug 'timonv/vim-cargo'         " run cargo commands inside vim
 Plug 'majutsushi/tagbar'        " Overview tags requires ctags
 Plug 'szw/vim-tags'
 Plug 'jiangmiao/auto-pairs'     " Automatically insert bracket pairs
-Plug 'scrooloose/nerdcommenter' " automatic commenting 
-Plug 'tpope/vim-surround'       " modify tags, quotes, and anything that surrounds text 
-Plug 'MattesGroeger/vim-bookmarks'  " Allow the use of bookmarks 
+Plug 'scrooloose/nerdcommenter' " automatic commenting
+Plug 'tpope/vim-surround'       " modify tags, quotes, and anything that surrounds text
+Plug 'MattesGroeger/vim-bookmarks'  " Allow the use of bookmarks
 Plug 'w0rp/ale'                 " Async Lint Engine
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive' " A Git wrapper so awesome it should be illegal
@@ -366,8 +366,9 @@ let g:ale_linters = {
 let g:ale_rust_rls_toolchain = 'stable'
 let g:ale_fixers = {
       \ 'rust': ['cargo-fmt'],
-      \ 'typescript': ['prettier', 'tslint', 'remove_trailing_lines', 'trim_whitespace'],
+      \ 'typescript': ['prettier', 'tslint'],
       \ 'ruby': ['rubocop'],
+      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
       \ }
 
 " Enable completion where available.
@@ -380,8 +381,10 @@ let g:ale_sign_error = "✗"
 let g:airline#extensions#ale#error_symbol = "✗"
 let g:ale_sign_warning = "⚠"
 let g:airline#extensions#ale#warning_symbol = "⚠"
+set omnifunc=ale#completion#OmniFunc
+" }}}
 
-" keybinds --
+" coc keybinds {{{
 nmap <F2> <Plug>(coc-rename)
 " remap for format selected line(s)
 nmap <localleader>f <Plug>(coc-format-selected)
@@ -402,8 +405,6 @@ omap af <Plug>(coc-funcobj-a)
 
 " use :Format to format current buffer
 command! -nargs=0 Format :call CocAction('format')
-
-set omnifunc=ale#completion#OmniFunc
 " }}}
 
 " {{{ vim-fugitive documentation
@@ -446,7 +447,7 @@ filetype plugin on
 "Uncomment to override defaults:
 "let g:instant_markdown_slow = 1
 let g:instant_markdown_autostart = 1
-"let g:instant_markdown_open_to_the_world = 1 
+"let g:instant_markdown_open_to_the_world = 1
 "let g:instant_markdown_allow_unsafe_content = 1
 "let g:instant_markdown_allow_external_content = 0
 "let g:instant_markdown_mathjax = 1
@@ -531,8 +532,8 @@ nnoremap <C-t> :sp term://bash<cr>
 
 " abbreviations {{{
 iabbrev @@ jhessin@gmail.com
-iabbrev ccopy Copyright 2019 Jim Hessin, all rights reserved. 
-iabbrev ssig -- <cr>Jim Hessin<cr>jhessin@gmail.com 
+iabbrev ccopy Copyright 2019 Jim Hessin, all rights reserved.
+iabbrev ssig -- <cr>Jim Hessin<cr>jhessin@gmail.com
 " }}}
 
 " TAB spacing {{{
@@ -548,7 +549,7 @@ set tw=79         " Set word wrap at 79 characters
 set number				" show line numbers
 set showcmd				" show command in bottom bar
 set cursorline				" highlight the current line
-filetype indent on    " load filetype-specific indent file  
+filetype indent on    " load filetype-specific indent file
 set wildmenu          " visual autocomplet for command menu
 set shiftround        " round to the nearest shiftstop
 set shiftwidth=2      " set the tab stops to 2
