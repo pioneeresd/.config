@@ -1,6 +1,9 @@
 #!/bin/bash
 # Setup
 
+# Add ~/.rbenv
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+
 # Copy my personal bin folder
 rm -rf ~/.local/bin
 git clone git@github.com:$USER/bin ~/.local/bin
