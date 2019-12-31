@@ -1,5 +1,5 @@
 favorites=arcolinux-hello.desktop,exo-preferred-applications.desktop,exo-file-manager.desktop,exo-web-browser.desktop,exo-terminal-emulator.desktop,conkyzen.desktop,conky-toggle.desktop
-recent=xfce-keyboard-settings.desktop,com.teamviewer.TeamViewer.desktop,asunder.desktop,org.manjaro.pamac.manager.desktop,xfce-session-settings.desktop,libreoffice-calc.desktop,cups.desktop,exo-terminal-emulator.desktop
+recent=xfce-keyboard-settings.desktop,asunder.desktop,org.manjaro.pamac.manager.desktop,xfce-session-settings.desktop,libreoffice-calc.desktop,cups.desktop,exo-terminal-emulator.desktop
 button-title=ArcoLinux\ \ \ \ 
 button-icon=start-here-arcolinux
 button-single-row=false
