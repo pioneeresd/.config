@@ -531,15 +531,12 @@ vnoremap <leader>cu :call NERDComment(1, "uncomment")<CR>
 
 " vim-bookmarks: Allow the use of bookmarks {{{
 " This is pretty self explanatory
-nnoremap <TAB> :BookmarkNext<CR>
 nnoremap mn :BookmarkNext<CR>
-nnoremap <S-TAB> :BookmarkPrev<CR>
 nnoremap mp :BookmarkPrev<CR>
-nnoremap <leader>b :BookmarkToggle<CR>
 nnoremap mm :BookmarkToggle<CR>
-nnoremap <leader>a :BookmarkAnnotate<CR>
-nnoremap <leader><TAB> :BookmarkShowAll<CR>
-nnoremap <leader>x :BookmarkClear<CR>
+nnoremap mi :BookmarkAnnotate<CR>
+nnoremap ma :BookmarkShowAll<CR>
+nnoremap mc :BookmarkClear<CR>
 " }}}
 
 " ale: Async Lint Engine {{{
@@ -674,28 +671,28 @@ au BufWinEnter * call ResCur()
 
 " Other key remaps {{{
 " These let me move lines very easily with m and a direction.
-" They can't seem to jump folds though.
-nnoremap mj :m .+1<CR>==
-nnoremap mk :m .-2<CR>==
+nnoremap mj ddp
+nnoremap mk ddkP
 vnoremap mj :m '>+1<CR>gv=gv
 vnoremap mk :m '<-2<CR>gv=gv
+
 " allow tab to jump between panes
 nnoremap <tab> <c-w><c-w>
+
+" ctrl-s saves
 inoremap <c-s> <esc>:update<CR>a
-inoremap <c-q> <esc>:wq<CR>
-nnoremap qq :q<CR>
-nnoremap <c-q> :wqa<CR>
+
 " Quickly edit this file
 nnoremap <leader>ev :split $MYVIMRC<cr>
 " Quickly reload this file
 nnoremap <leader>sv :source $MYVIMRC<cr>
-" Save and quit with ctrl-q
-inoremap <c-q> <esc>:wq<cr>
+
 " H and L go to the beginning and the end of a line respectively
 nnoremap H 0
 onoremap H 0
 nnoremap L g_
 onoremap L g_
+
 " Remove unused keys
 nnoremap <UP> <nop>
 nnoremap <DOWN> <nop>
