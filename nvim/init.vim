@@ -2,6 +2,7 @@
 " anything put them in here. Once you are done hit <Shift-ZZ> or :wq to
 " continue.
 " BASIC -PUT THIS FIRST!- {{{
+au!
 syntax enable 				" enable syntax processing 
 nnoremap <space> <nop>
 let mapleader=" "           " leader is space
@@ -668,10 +669,7 @@ function! ResCur()
   endif
 endfunction
 
-augroup resCur
-  au!
-  au BufWinEnter * call ResCur()
-augroup END
+au BufWinEnter * call ResCur()
 " }}}
 
 " Other key remaps {{{
@@ -733,26 +731,20 @@ set expandtab				" tabs are expanded to spaces
 " }}}
 
 " UI Config {{{
-" set guicursor=    " disable gui cursor for my backward system.
-set tw=79         " Set word wrap at 79 characters
-set number				" show line numbers
-set showcmd				" show command in bottom bar
-set cursorline				" highlight the current line
-set wildmenu          " visual autocomplet for command menu
-set shiftround        " round to the nearest shiftstop
-set shiftwidth=2      " set the tab stops to 2
-set showmatch         " highlight matching [{()}]
-set incsearch         " search as characters are entered
-set hlsearch          " highlight matches
+" set guicursor=            " disable gui cursor for my backward system.
+set tw=79                   " Set word wrap at 79 characters
+set number				          " show line numbers
+set showcmd				          " show command in bottom bar
+set cursorline				      " highlight the current line
+set wildmenu                " visual autocomplet for command menu
+set shiftround              " round to the nearest shiftstop
+set shiftwidth=2            " set the tab stops to 2
+set showmatch               " highlight matching [{()}]
+set incsearch               " search as characters are entered
+set hlsearch                " highlight matches
 set clipboard+=unnamedplus " Use standard clipboard for yank and paste
-" auto indent files on save/load
-augroup UI
-  au!
-  " au BufRead *.html,*.js,*.ts,*.rs,*.toml :normal gg=G
-  " spell check all md and txt files
-  au FileType text,markdown :setlocal spell
-  au BufNewFile,BufRead * setlocal formatoptions-=ro
-augroup END
+au FileType text,markdown :setlocal spell
+au BufNewFile,BufRead * setlocal formatoptions-=ro
 " }}}
 
 " turn off search highlight {{{
