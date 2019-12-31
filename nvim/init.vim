@@ -17,6 +17,11 @@ endif
 set mouse=a
 " }}}  
 
+" Pre-Plugin Settings {{{
+
+
+" }}}
+
 " plug plugins go here {{{
 call plug#begin('~/.config/nvim/plugged')
 Plug 'OmniSharp/omnisharp-vim'        " c# Programming support {{
@@ -24,18 +29,13 @@ let g:OmniSharp_server_stdio = 1
 " }}
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'vim-syntastic/syntastic'        " Syntax checking plugin
-" Plug 'flazz/vim-colorschemes'                 " Color scheme manager {{{
-" Plug 'altercation/vim-colors-solarized' " Solarized color scheme
-set background=dark
-colorscheme darkblue
-" }}}
+Plug 'flazz/vim-colorschemes'
 Plug 'tpope/vim-dispatch'             " async builder and tester {{{
 Plug 'radenling/vim-dispatch-neovim'  " neovim support
 " }}}
 Plug 'skwp/vim-easymotion'            " Highlight and move anywhere {{{
 " let g:EasyMotion_leader_key='<Leader>'
 " }}}
-" Plug 'terryma/vim-multiple-cursors'
 Plug 'gisphm/vim-gitignore' " Syntax highlighting and snippets {{{
 
 let g:UltiSnipsEnableSnipMate = 0 " Disable SnipMate snippets
@@ -617,6 +617,16 @@ filetype plugin on
 " }}}
 call plug#end()
 " }}}
+
+" Post-Plugin Settings {{{
+
+" Color scheme settings {{{
+set background=dark
+colorscheme 1989
+" }}}
+
+" }}}
+
 " Put your non-Plugin stuff after this line
 
 " Tell vim to remember certain things when we exit {{{
@@ -628,8 +638,7 @@ call plug#end()
 set viminfo='10,\"100,:20,%,n~/.config/nvim/viminfo
 " }}}
 
-" Uncomment the following to have Vim jump to the last position when
-" reopening a file {{{
+" remember cursor when reopening a file {{{
 function! ResCur()
   if line("'\"") <= line("$")
     normal! g`"
