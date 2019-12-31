@@ -636,7 +636,7 @@ let g:statusline_fullpath = 1
 " }}}
 
 " instant-markdown: Preview markdown files. {{{
-filetype plugin on
+filetype plugin indent on
 "Uncomment to override defaults:
 "let g:instant_markdown_slow = 1
 "let g:instant_markdown_autostart = 0
@@ -738,7 +738,6 @@ set tw=79         " Set word wrap at 79 characters
 set number				" show line numbers
 set showcmd				" show command in bottom bar
 set cursorline				" highlight the current line
-filetype indent on    " load filetype-specific indent file  
 set wildmenu          " visual autocomplet for command menu
 set shiftround        " round to the nearest shiftstop
 set shiftwidth=2      " set the tab stops to 2
