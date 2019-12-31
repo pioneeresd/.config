@@ -32,9 +32,7 @@ Plug 'kien/rainbow_parentheses.vim'
 Plug 'vim-syntastic/syntastic'        " Syntax checking plugin
 Plug 'flazz/vim-colorschemes'
 Plug 'tpope/vim-dispatch'
-" async builder and tester {{{
 Plug 'radenling/vim-dispatch-neovim'  " neovim support
-" }}}
 Plug 'skwp/vim-easymotion'
 " Highlight and move anywhere {{{
 " let g:EasyMotion_leader_key='<Leader>'
@@ -49,9 +47,9 @@ Plug 'thinca/vim-template'
 
 " }}}
 Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 " {{{ Snippet support
 " Snippets are separated from the engine. Add this if you want them:
-Plug 'honza/vim-snippets'
 
 if has('python') || has('python3')
   " Trigger configuration. Do not use <tab> if you use
@@ -90,9 +88,8 @@ endif
 let g:UltiSnipsEditSplit="vertical"
 " }}}
 Plug 'lervag/vimtex'
-" {{{ Set up latex
-
 Plug 'matze/vim-tex-fold' " folding of tex files
+" {{{ Set up latex
 
 let g:tex_fold_additional_envs = [
       \ 'itemize',
@@ -583,9 +580,7 @@ command! -nargs=0 Format :call CocAction('format')
 
 set omnifunc=ale#completion#OmniFunc
 " }}}
-" {{{ Autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" }}}
 Plug 'tpope/vim-fugitive'
 " A Git wrapper so awesome it should be illegal {{{
 " I'm not going to lie to you; fugitive.vim may very well be the best Git wrapper of all time. Check out these features:
