@@ -23,6 +23,10 @@ set mouse=a
 let g:OmniSharp_server_stdio = 1
 " }}}
 
+" UltiSnips pre-configuration {{{
+let g:UltiSnipsEnableSnipMate = 0 " Disable SnipMate snippets
+" }}}
+
 " }}}
 
 " plug plugins go here {{{
@@ -34,86 +38,12 @@ Plug 'flazz/vim-colorschemes'
 Plug 'tpope/vim-dispatch'
 Plug 'radenling/vim-dispatch-neovim'  " neovim support
 Plug 'skwp/vim-easymotion'
-" Highlight and move anywhere {{{
-" let g:EasyMotion_leader_key='<Leader>'
-" }}}
 Plug 'gisphm/vim-gitignore'
-" Syntax highlighting and snippets {{{
-
-let g:UltiSnipsEnableSnipMate = 0 " Disable SnipMate snippets
-" }}}
-Plug 'thinca/vim-template'
-" A template plugin {{{
-
-" }}}
+Plug 'thinca/vim-template' " A template plugin 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-" {{{ Snippet support
-" Snippets are separated from the engine. Add this if you want them:
-
-if has('python') || has('python3')
-  " Trigger configuration. Do not use <tab> if you use
-  " https://github.com/Valloric/YouCompleteMe
-  let g:UltiSnipsExpandTrigger="<tab>"
-  let g:UltiSnipsJumpForwardTrigger="<tab>"
-  let g:UltiSnipsJumpBackwardTrigger="<c-tab>"
-
-  " packadd ultisnips
-
-  " Completor SHOULD BE opened automatically
-  " Completor and ultisnips to reuse TAB key
-  " tab to trigger snip -> jump to next placeholder -> next completion or
-  " insert a plain tab char
-  fun! Tab_Or_Complete() " {{{
-    call UltiSnips#ExpandSnippet()
-    if g:ulti_expand_res == 0
-      call UltiSnips#JumpForwards()
-      if g:ulti_jump_forwards_res == 0
-        if pumvisible()
-          return "\<C-n>"
-        else
-          return "\<TAB>"
-        endif
-      endif
-    endif
-    return ""
-  endf "}}}
-
-  au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=Tab_Or_Complete()<cr>"
-
-  " packadd ale.vim
-endif
-
-" if you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-" }}}
 Plug 'lervag/vimtex'
 Plug 'matze/vim-tex-fold' " folding of tex files
-" {{{ Set up latex
-
-let g:tex_fold_additional_envs = [
-      \ 'itemize',
-      \ 'longtable',
-      \ 'enumerate',
-      \]
-let g:tex_flavor = 'latex'
-let g:vimtex_view_method='zathura'
-let g:vimtex_compiler_method='latexmk'
-let g:vimtex_compiler_latexmk={
-      \ 'backend' : 'nvim',
-      \ 'build_dir' : '',
-      \ 'callback' : 0,
-      \ 'continuous' : 1,
-      \ 'executable' : 'latexmk',
-      \ 'hooks' : [],
-      \ 'options' : [
-      \   '-verbose',
-      \   '-file-line-error',
-      \   '-synctex=1',
-      \   '-interaction=nonstopmode',
-      \ ]
-      \}
-" }}}
 Plug 'rust-lang/rust.vim'
 " a standard rust plugin {{{
 " Provides Error checking through the syntastic plugin below
@@ -637,6 +567,72 @@ call plug#end()
 " Color scheme settings {{{
 set background=dark
 colorscheme 1989
+" }}}
+
+" {{{ Snippet support
+" Snippets are separated from the engine. Add this if you want them:
+
+if has('python') || has('python3')
+  " Trigger configuration. Do not use <tab> if you use
+  " https://github.com/Valloric/YouCompleteMe
+  let g:UltiSnipsExpandTrigger="<tab>"
+  let g:UltiSnipsJumpForwardTrigger="<tab>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-tab>"
+
+  " packadd ultisnips
+
+  " Completor SHOULD BE opened automatically
+  " Completor and ultisnips to reuse TAB key
+  " tab to trigger snip -> jump to next placeholder -> next completion or
+  " insert a plain tab char
+  fun! Tab_Or_Complete() " {{{
+    call UltiSnips#ExpandSnippet()
+    if g:ulti_expand_res == 0
+      call UltiSnips#JumpForwards()
+      if g:ulti_jump_forwards_res == 0
+        if pumvisible()
+          return "\<C-n>"
+        else
+          return "\<TAB>"
+        endif
+      endif
+    endif
+    return ""
+  endf "}}}
+
+  au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=Tab_Or_Complete()<cr>"
+
+  " packadd ale.vim
+endif
+
+" if you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+" }}}
+
+" {{{ Set up latex
+
+let g:tex_fold_additional_envs = [
+      \ 'itemize',
+      \ 'longtable',
+      \ 'enumerate',
+      \]
+let g:tex_flavor = 'latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_compiler_method='latexmk'
+let g:vimtex_compiler_latexmk={
+      \ 'backend' : 'nvim',
+      \ 'build_dir' : '',
+      \ 'callback' : 0,
+      \ 'continuous' : 1,
+      \ 'executable' : 'latexmk',
+      \ 'hooks' : [],
+      \ 'options' : [
+      \   '-verbose',
+      \   '-file-line-error',
+      \   '-synctex=1',
+      \   '-interaction=nonstopmode',
+      \ ]
+      \}
 " }}}
 
 " }}}
