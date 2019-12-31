@@ -19,48 +19,7 @@ set mouse=a
 
 " Pre-Plugin Settings {{{
 
-" OmniSharp settings {{{
-let g:OmniSharp_server_stdio = 1
-" }}}
-
-" UltiSnips pre-configuration {{{
-let g:UltiSnipsEnableSnipMate = 0 " Disable SnipMate snippets
-" }}}
-
-" }}}
-
-" plug plugins go here {{{
-call plug#begin('~/.config/nvim/plugged')
-Plug 'OmniSharp/omnisharp-vim'
-Plug 'kien/rainbow_parentheses.vim'
-Plug 'vim-syntastic/syntastic'        " Syntax checking plugin
-Plug 'flazz/vim-colorschemes'
-Plug 'tpope/vim-dispatch'
-Plug 'radenling/vim-dispatch-neovim'  " neovim support
-Plug 'skwp/vim-easymotion'
-Plug 'gisphm/vim-gitignore'
-Plug 'thinca/vim-template' " A template plugin 
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'lervag/vimtex'
-Plug 'matze/vim-tex-fold' " folding of tex files
-Plug 'rust-lang/rust.vim'
-" a standard rust plugin {{{
-" Provides Error checking through the syntastic plugin below
-" Also provides tags for the Tagbar plugin below
-" Provides rust format support and will automatically
-" run on save with the following
-let g:rustfmt_autosave = 1
-" Also integrates with Playpen (not sure what that is?)
-" Can use the command :RustTest to run a test under the cursor
-" For more info run :help rust
-" }}}
-Plug 'leafgarland/typescript-vim'      " Typescript syntax, etc.
-Plug 'dag/vim-fish'                    " fish syntax highlighting
-Plug 'vim-airline/vim-airline' " airline - powerline but lighter than air
-Plug 'vim-airline/vim-airline-themes'
-Plug 'timonv/vim-cargo'
-" run cargo commands inside vim {{{
+" vim-cargo documentation {{{
 " Provides the following cargo commands:
 " :CargoBench
 " :CargoBuild
@@ -71,14 +30,8 @@ Plug 'timonv/vim-cargo'
 " :CargoTest
 " :CargoUpdate
 " }}}
-Plug 'majutsushi/tagbar'
-" Overview tags {{{
-" All tagbar commands begin with :Tagbar - this maps F8 to toggle the
-" bar.
-nmap <F8> :TagbarToggle<CR>
-"}}}
-Plug 'jiangmiao/auto-pairs'
-" Automatically insert bracket pairs {{{
+
+" auto-pairs: documentation {{{
 " Automatically inserts and formats pairs of brackets, parenthesis, quotes,
 " etc.
 " Features (copied from README)
@@ -190,8 +143,144 @@ Plug 'jiangmiao/auto-pairs'
 "    Support any multibyte pairs such as <!-- -->, <% %>, """ """
 "    See multibyte pairs section for details
 " }}}
+
+" OmniSharp settings {{{
+let g:OmniSharp_server_stdio = 1
+" }}}
+
+" UltiSnips pre-configuration {{{
+let g:UltiSnipsEnableSnipMate = 0 " Disable SnipMate snippets
+" }}}
+
+" }}}
+
+" plug plugins go here {{{
+call plug#begin('~/.config/nvim/plugged')
+Plug 'OmniSharp/omnisharp-vim'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'vim-syntastic/syntastic'        " Syntax checking plugin
+Plug 'flazz/vim-colorschemes'
+Plug 'tpope/vim-dispatch'
+Plug 'radenling/vim-dispatch-neovim'  " neovim support
+Plug 'skwp/vim-easymotion'
+Plug 'gisphm/vim-gitignore'
+Plug 'thinca/vim-template' " A template plugin 
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'lervag/vimtex'
+Plug 'matze/vim-tex-fold' " folding of tex files
+Plug 'rust-lang/rust.vim'
+Plug 'leafgarland/typescript-vim'      " Typescript syntax, etc.
+Plug 'dag/vim-fish'                    " fish syntax highlighting
+Plug 'vim-airline/vim-airline' " airline - powerline but lighter than air
+Plug 'vim-airline/vim-airline-themes'
+Plug 'timonv/vim-cargo'
+Plug 'majutsushi/tagbar'
+Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdcommenter'
-" automatic commenting {{{
+Plug 'tpope/vim-surround'
+Plug 'airblade/vim-gitgutter'
+Plug 'MattesGroeger/vim-bookmarks'
+Plug 'w0rp/ale'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-fugitive'
+Plug 'dickeyxxx/status.vim'
+" Plug 'ervandew/supertab'    " Use tab for completion
+Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
+call plug#end()
+" }}}
+
+" Post-Plugin Settings {{{
+
+" rust.vim settings {{{
+" Provides Error checking through the syntastic plugin below
+" Also provides tags for the Tagbar plugin below
+" Provides rust format support and will automatically
+" run on save with the following
+let g:rustfmt_autosave = 1
+" Also integrates with Playpen (not sure what that is?)
+" Can use the command :RustTest to run a test under the cursor
+" For more info run :help rust
+" }}}
+
+" Color scheme settings {{{
+set background=dark
+colorscheme 1989
+" }}}
+
+" {{{ Snippet support
+" Snippets are separated from the engine. Add this if you want them:
+
+if has('python') || has('python3')
+  " Trigger configuration. Do not use <tab> if you use
+  " https://github.com/Valloric/YouCompleteMe
+  let g:UltiSnipsExpandTrigger="<tab>"
+  let g:UltiSnipsJumpForwardTrigger="<tab>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-tab>"
+
+  " packadd ultisnips
+
+  " Completor SHOULD BE opened automatically
+  " Completor and ultisnips to reuse TAB key
+  " tab to trigger snip -> jump to next placeholder -> next completion or
+  " insert a plain tab char
+  fun! Tab_Or_Complete() " {{{
+    call UltiSnips#ExpandSnippet()
+    if g:ulti_expand_res == 0
+      call UltiSnips#JumpForwards()
+      if g:ulti_jump_forwards_res == 0
+        if pumvisible()
+          return "\<C-n>"
+        else
+          return "\<TAB>"
+        endif
+      endif
+    endif
+    return ""
+  endf "}}}
+
+  au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=Tab_Or_Complete()<cr>"
+
+  " packadd ale.vim
+endif
+
+" if you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+" }}}
+
+" {{{ Set up latex
+
+let g:tex_fold_additional_envs = [
+      \ 'itemize',
+      \ 'longtable',
+      \ 'enumerate',
+      \]
+let g:tex_flavor = 'latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_compiler_method='latexmk'
+let g:vimtex_compiler_latexmk={
+      \ 'backend' : 'nvim',
+      \ 'build_dir' : '',
+      \ 'callback' : 0,
+      \ 'continuous' : 1,
+      \ 'executable' : 'latexmk',
+      \ 'hooks' : [],
+      \ 'options' : [
+      \   '-verbose',
+      \   '-file-line-error',
+      \   '-synctex=1',
+      \   '-interaction=nonstopmode',
+      \ ]
+      \}
+" }}}
+
+" tagbar settings {{{
+" All tagbar commands begin with :Tagbar - this maps F8 to toggle the
+" bar.
+nmap <F8> :TagbarToggle<CR>
+"}}}
+
+" nerdcommenter: automatic commenting {{{
 
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
@@ -302,8 +391,8 @@ vnoremap <leader>cu :call NERDComment(1, "uncomment")<CR>
 "    Uncomments the selected line(s).
 
 " }}}
-Plug 'tpope/vim-surround'
-" modify tags, quotes, and anything that surrounds text {{{
+
+" vim-surround modify tags, quotes, and anything that surrounds text {{{
 "Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more. The plugin provides mappings to easily delete, change and add such surroundings in pairs.
 
 "It's easiest to explain with examples. Press cs"' inside
@@ -356,8 +445,8 @@ Plug 'tpope/vim-surround'
 
 "The . command will work with ds, cs, and yss if you install repeat.vim.
 "}}}
-Plug 'airblade/vim-gitgutter'
-" show git tags in the gutter {{{
+
+" gitgutter: show git tags in the gutter {{{
 " A Vim plugin which shows a git diff in the 'gutter' (sign column). It shows which lines have been added, modified, or removed. You can also preview, stage, and undo individual hunks. The plugin also provides a hunk text object.
 "
 " The signs are always up to date and the plugin never saves your buffer.
@@ -438,8 +527,8 @@ Plug 'airblade/vim-gitgutter'
 "
 " There is a TON more customization available on the website http://github.com/airblade/vim-gitgutter
 " }}}
-Plug 'MattesGroeger/vim-bookmarks'
-" Allow the use of bookmarks {{{
+
+" vim-bookmarks: Allow the use of bookmarks {{{
 " This is pretty self explanatory
 nnoremap <TAB> :BookmarkNext<CR>
 nnoremap mn :BookmarkNext<CR>
@@ -451,8 +540,8 @@ nnoremap <leader>a :BookmarkAnnotate<CR>
 nnoremap <leader><TAB> :BookmarkShowAll<CR>
 nnoremap <leader>x :BookmarkClear<CR>
 " }}}
-Plug 'w0rp/ale'
-" Async Lint Engine {{{
+
+" ale: Async Lint Engine {{{
 
 " ale settings
 let g:ale_set_highlights = 1
@@ -510,9 +599,8 @@ command! -nargs=0 Format :call CocAction('format')
 
 set omnifunc=ale#completion#OmniFunc
 " }}}
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'tpope/vim-fugitive'
-" A Git wrapper so awesome it should be illegal {{{
+
+" vim-fugitive: A Git wrapper so awesome it should be illegal {{{
 " I'm not going to lie to you; fugitive.vim may very well be the best Git wrapper of all time. Check out these features:
 "
 " View any blob, tree, commit, or tag in the repository with :Gedit (and :Gsplit, :Gvsplit, :Gtabedit, ...). Edit a file in the index and write to it to stage the changes. Use :Gdiff to bring up the staged version of the file side by side with the working tree version and use Vim's diff handling capabilities to stage a subset of the file's changes.
@@ -533,8 +621,8 @@ Plug 'tpope/vim-fugitive'
 "
 " Last but not least, there's :Git for running any arbitrary command, and Git! to open the output of a command in a temp file.
 " }}}
-Plug 'dickeyxxx/status.vim'
-" A better status line {{{
+
+" status.vim: A better status line {{{
 "Load Fugitive
 let g:statusline_fugitive = 1
 "Do Not Load RVM
@@ -546,9 +634,8 @@ let g:statusline_enabled = 1
 "Turn on full paths
 let g:statusline_fullpath = 1
 " }}}
-" Plug 'ervandew/supertab'    " Use tab for completion
-Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
-" Preview markdown files. {{{
+
+" instant-markdown: Preview markdown files. {{{
 filetype plugin on
 "Uncomment to override defaults:
 "let g:instant_markdown_slow = 1
@@ -558,81 +645,6 @@ filetype plugin on
 "let g:instant_markdown_allow_external_content = 0
 "let g:instant_markdown_mathjax = 1
 " Plugins end here
-" }}}
-call plug#end()
-" }}}
-
-" Post-Plugin Settings {{{
-
-" Color scheme settings {{{
-set background=dark
-colorscheme 1989
-" }}}
-
-" {{{ Snippet support
-" Snippets are separated from the engine. Add this if you want them:
-
-if has('python') || has('python3')
-  " Trigger configuration. Do not use <tab> if you use
-  " https://github.com/Valloric/YouCompleteMe
-  let g:UltiSnipsExpandTrigger="<tab>"
-  let g:UltiSnipsJumpForwardTrigger="<tab>"
-  let g:UltiSnipsJumpBackwardTrigger="<c-tab>"
-
-  " packadd ultisnips
-
-  " Completor SHOULD BE opened automatically
-  " Completor and ultisnips to reuse TAB key
-  " tab to trigger snip -> jump to next placeholder -> next completion or
-  " insert a plain tab char
-  fun! Tab_Or_Complete() " {{{
-    call UltiSnips#ExpandSnippet()
-    if g:ulti_expand_res == 0
-      call UltiSnips#JumpForwards()
-      if g:ulti_jump_forwards_res == 0
-        if pumvisible()
-          return "\<C-n>"
-        else
-          return "\<TAB>"
-        endif
-      endif
-    endif
-    return ""
-  endf "}}}
-
-  au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=Tab_Or_Complete()<cr>"
-
-  " packadd ale.vim
-endif
-
-" if you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-" }}}
-
-" {{{ Set up latex
-
-let g:tex_fold_additional_envs = [
-      \ 'itemize',
-      \ 'longtable',
-      \ 'enumerate',
-      \]
-let g:tex_flavor = 'latex'
-let g:vimtex_view_method='zathura'
-let g:vimtex_compiler_method='latexmk'
-let g:vimtex_compiler_latexmk={
-      \ 'backend' : 'nvim',
-      \ 'build_dir' : '',
-      \ 'callback' : 0,
-      \ 'continuous' : 1,
-      \ 'executable' : 'latexmk',
-      \ 'hooks' : [],
-      \ 'options' : [
-      \   '-verbose',
-      \   '-file-line-error',
-      \   '-synctex=1',
-      \   '-interaction=nonstopmode',
-      \ ]
-      \}
 " }}}
 
 " }}}
