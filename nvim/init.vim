@@ -2,82 +2,51 @@
 " anything put them in here. Once you are done hit <Shift-ZZ> or :wq to
 " continue.
 " BASIC -PUT THIS FIRST!- {{{
-syntax enable 				" enable syntax processing
+syntax enable 				" enable syntax processing 
 nnoremap <space> <nop>
-
 let mapleader=" "           " leader is space
 let maplocalleader=","      " local leader is ,
-
 " Airline options
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-
 " disable fish shell
 if &shell =~# 'fish$'
   set shell=sh
 endif
-
 " set mouse scrolling
 set mouse=a
-
-" {{{ UltiSnip pre-settings
-let g:UltiSnipsEnableSnipMate = 0 " Disable SnipMate snippets
-" }}}
-
-" }}}
+" }}}  
 
 " plug plugins go here {{{
 call plug#begin('~/.config/nvim/plugged')
-Plug 'dockyard/vim-easydir'           " Automatically create directories
-Plug 'tmhedberg/matchit'              " extend % matching for HTML, LaTeX, and many other languages
-Plug 'OmniSharp/omnisharp-vim'        " c# Programming support
+Plug 'OmniSharp/omnisharp-vim'        " c# Programming support {{
+let g:OmniSharp_server_stdio = 1
+" }}
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'vim-syntastic/syntastic'        " Syntax checking plugin
-Plug 'flazz/vim-colorschemes'                 " Color scheme manager
+" Plug 'flazz/vim-colorschemes'                 " Color scheme manager {{{
 " Plug 'altercation/vim-colors-solarized' " Solarized color scheme
-Plug 'tpope/vim-dispatch'             " async builder and tester
-Plug 'tpope/vim-ragtag'                " tag matching
-Plug 'tpope/vim-rails'
-Plug 'radenling/vim-dispatch-neovim'  " neovim support
-Plug 'skwp/vim-easymotion'            " Highlight and move anywhere
-" Plug 'terryma/vim-multiple-cursors'
-Plug 'gisphm/vim-gitignore' " Syntax highlighting and snippets
-Plug 'thinca/vim-template' " A template plugin
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'lervag/vimtex'
-Plug 'matze/vim-tex-fold'
-Plug 'rust-lang/rust.vim'       " a standard rust plugin
-Plug 'leafgarland/typescript-vim'      " Typescript syntax, etc.
-Plug 'dag/vim-fish'                    " fish syntax highlighting
-Plug 'vim-airline/vim-airline' " airline - powerline but lighter than air
-Plug 'vim-airline/vim-airline-themes'
-Plug 'timonv/vim-cargo'         " run cargo commands inside vim
-Plug 'majutsushi/tagbar'        " Overview tags requires ctags
-Plug 'szw/vim-tags'
-Plug 'jiangmiao/auto-pairs'     " Automatically insert bracket pairs
-Plug 'scrooloose/nerdcommenter' " automatic commenting
-Plug 'tpope/vim-surround'       " modify tags, quotes, and anything that surrounds text
-Plug 'MattesGroeger/vim-bookmarks'  " Allow the use of bookmarks
-Plug 'w0rp/ale'                 " Async Lint Engine
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'tpope/vim-fugitive' " A Git wrapper so awesome it should be illegal
-Plug 'int3/vim-extradite' " use :Extradite for managing working tree
-Plug 'dickeyxxx/status.vim' " A better status line
-Plug 'ervandew/supertab'    " Use tab for completion
-Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }  " Preview markdown files.
-call plug#end()
-" }}}
-
-" Plugin settings {{{
-
-" colorscheme settings {{{
 set background=dark
-" colorscheme darkblue
-colorscheme 1989
+colorscheme darkblue
 " }}}
+Plug 'tpope/vim-dispatch'             " async builder and tester {{{
+Plug 'radenling/vim-dispatch-neovim'  " neovim support
+" }}}
+Plug 'skwp/vim-easymotion'            " Highlight and move anywhere {{{
+" let g:EasyMotion_leader_key='<Leader>'
+" }}}
+" Plug 'terryma/vim-multiple-cursors'
+Plug 'gisphm/vim-gitignore' " Syntax highlighting and snippets {{{
 
-" ultisnips settings {{{
+let g:UltiSnipsEnableSnipMate = 0 " Disable SnipMate snippets
+" }}}
+Plug 'thinca/vim-template' " A template plugin {{{
+
+" }}}
+Plug 'SirVer/ultisnips' " {{{ Snippet support
+" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
+
 if has('python') || has('python3')
   " Trigger configuration. Do not use <tab> if you use
   " https://github.com/Valloric/YouCompleteMe
@@ -114,8 +83,10 @@ endif
 " if you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 " }}}
+Plug 'lervag/vimtex'  " {{{ Set up latex
 
-" vim-tex-fold settings {{{
+Plug 'matze/vim-tex-fold' " folding of tex files
+
 let g:tex_fold_additional_envs = [
       \ 'itemize',
       \ 'longtable',
@@ -139,8 +110,7 @@ let g:vimtex_compiler_latexmk={
       \ ]
       \}
 " }}}
-
-" {{{ rust.vim documentation and settings
+Plug 'rust-lang/rust.vim'       " a standard rust plugin {{{
 " Provides Error checking through the syntastic plugin below
 " Also provides tags for the Tagbar plugin below
 " Provides rust format support and will automatically
@@ -150,8 +120,11 @@ let g:rustfmt_autosave = 1
 " Can use the command :RustTest to run a test under the cursor
 " For more info run :help rust
 " }}}
-
-" vim-cargo documentation {{{
+Plug 'leafgarland/typescript-vim'      " Typescript syntax, etc.
+Plug 'dag/vim-fish'                    " fish syntax highlighting
+Plug 'vim-airline/vim-airline' " airline - powerline but lighter than air
+Plug 'vim-airline/vim-airline-themes'
+Plug 'timonv/vim-cargo'         " run cargo commands inside vim {{{
 " Provides the following cargo commands:
 " :CargoBench
 " :CargoBuild
@@ -162,14 +135,124 @@ let g:rustfmt_autosave = 1
 " :CargoTest
 " :CargoUpdate
 " }}}
-
-" {{{ vim-tags settings
+Plug 'majutsushi/tagbar'        " Overview tags {{{
 " All tagbar commands begin with :Tagbar - this maps F8 to toggle the
 " bar.
 nmap <F8> :TagbarToggle<CR>
-" }}}
+"}}}
+Plug 'jiangmiao/auto-pairs'     " Automatically insert bracket pairs {{{
+" Automatically inserts and formats pairs of brackets, parenthesis, quotes,
+" etc.
+" Features (copied from README)
+"   Insert in pair
 
-" {{{ nerdcommenter settings
+"   input: [
+"   output: [|]
+
+"   Delete in pair
+
+"   input: foo[<BS>]
+"   output: foo
+
+"   Insert new indented line after Return
+
+"   input: {|} (press <CR> at |)
+"   output: {
+"       |
+"   }          (press } to close the pair)
+"   output: {
+"   }|         (the inserted blank line will be deleted)
+
+"   Insert spaces before closing characters, only for [], (), {}
+
+"   input: {|} (press <SPACE> at |)
+"   output: { | }
+
+"   input: {|} (press <SPACE>foo} at |)
+"   output: { foo }|
+
+"   input: '|' (press <SPACE> at |)
+"   output: ' |'
+
+"   Skip ' when inside a word
+
+"   input: foo| (press ' at |)
+"   output: foo'
+
+"   Skip closed bracket.
+
+"   input: []
+"   output: []
+
+"   Ignore auto pair when previous character is \
+
+"   input: "\'
+"   output: "\'"
+
+"   Fast Wrap
+
+"   input: |[foo, bar()] (press (<M-e> at |)
+"   output: ([foo, bar()])
+
+"   Quick move char to closed pair
+
+"   input: (|){["foo"]} (press <M-}> at |)
+"   output: ({["foo"]}|)
+
+"   input: |[foo, bar()] (press (<M-]> at |)
+"   output: ([foo, bar()]|)
+
+"   Quick jump to closed pair.
+
+"   input:
+"   {
+"       something;|
+"   }
+
+"   (press } at |)
+
+"   output:
+"   {
+
+"   }|
+
+"   Fly Mode
+
+"    input: if(a[3)
+"    output: if(a[3])| (In Fly Mode)
+"    output: if(a[3)]) (Without Fly Mode)
+
+"    input:
+"    {
+"        hello();|
+"        world();
+"    }
+
+"    (press } at |)
+
+"    output:
+"    {
+"        hello();
+"        world();
+"    }|
+
+"    (then press <M-b> at | to do backinsert)
+"    output:
+"    {
+"        hello();}|
+"        world();
+"    }
+
+"    See Fly Mode section for details
+"    uncomment this line to enable
+"    g:AutoPairsFlyMode = 1
+
+"   Multibyte Pairs
+
+"    Support any multibyte pairs such as <!-- -->, <% %>, """ """
+"    See multibyte pairs section for details
+" }}}
+Plug 'scrooloose/nerdcommenter' " automatic commenting {{{
 
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
@@ -280,8 +363,7 @@ vnoremap <leader>cu :call NERDComment(1, "uncomment")<CR>
 "    Uncomments the selected line(s).
 
 " }}}
-
-" {{{ Surround.vim documentation
+Plug 'tpope/vim-surround'       " modify tags, quotes, and anything that surrounds text {{{
 "Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more. The plugin provides mappings to easily delete, change and add such surroundings in pairs.
 
 "It's easiest to explain with examples. Press cs"' inside
@@ -334,8 +416,88 @@ vnoremap <leader>cu :call NERDComment(1, "uncomment")<CR>
 
 "The . command will work with ds, cs, and yss if you install repeat.vim.
 "}}}
-
-" {{{ vim-bookmarks
+Plug 'airblade/vim-gitgutter'   " show git tags in the gutter {{{
+" A Vim plugin which shows a git diff in the 'gutter' (sign column). It shows which lines have been added, modified, or removed. You can also preview, stage, and undo individual hunks. The plugin also provides a hunk text object.
+"
+" The signs are always up to date and the plugin never saves your buffer.
+"
+" Features:
+"
+"     Shows signs for added, modified, and removed lines.
+"     Runs the diffs asynchronously where possible.
+"     Ensures signs are always up to date.
+"     Never saves the buffer.
+"     Quick jumping between blocks of changed lines ("hunks").
+"     Stage/undo/preview individual hunks.
+"     Provides a hunk text object.
+"     Diffs against index (default) or any commit.
+"     Allows folding all unchanged text.
+"     Handles line endings correctly, even with repos that do CRLF conversion.
+"     Optional line highlighting.
+"     Fully customisable (signs, sign column, line highlights, mappings, extra git-diff arguments, etc).
+"     Can be toggled on/off, globally or per buffer.
+"     Preserves signs from other plugins.
+"     Easy to integrate diff stats into status line; built-in integration with vim-airline.
+"     Works with fish shell (in addition to the usual shells).
+"
+" Constraints:
+"
+"     Supports git only. If you work with other version control systems, I recommend vim-signify.
+"     Relies on the FocusGained event. If your terminal doesn't report focus events, either use something like Terminus or set let g:gitgutter_terminal_reports_focus=0. For tmux, set -f focus-events on in your tmux.conf.
+"
+"     You can jump between hunks with [c and ]c. You can preview, stage, and undo hunks with <leader>hp, <leader>hs, and <leader>hu respectively.
+"     You cannot unstage a staged hunk.
+"     To set your own mappings for these, for example ]h and [h:
+"
+" nmap ]h <Plug>GitGutterNextHunk
+" nmap [h <Plug>GitGutterPrevHunk
+"
+" You can stage or undo an individual hunk when your cursor is in it:
+"
+"     stage the hunk with <Leader>hs or
+"     undo it with <Leader>hu.
+"
+" See the FAQ if you want to unstage staged changes.
+"
+" The . command will work with both these if you install repeat.vim.
+"
+" To set your own mappings for these, for example if you prefer the mnemonics hunk-add and hunk-revert:
+"
+" nmap <Leader>ha <Plug>GitGutterStageHunk
+" nmap <Leader>hr <Plug>GitGutterUndoHunk
+"
+" And you can preview a hunk's changes with <Leader>hp. You can of course change this mapping, e.g:
+"
+" nmap <Leader>hv <Plug>GitGutterPreviewHunk
+"
+" A hunk text object is provided which works in visual and operator-pending modes.
+"
+"     ic operates on all lines in the current hunk.
+"     ac operates on all lines in the current hunk and any trailing empty lines.
+"
+" To re-map these, for example to ih and ah:
+"
+" omap ih <Plug>GitGutterTextObjectInnerPending
+" omap ah <Plug>GitGutterTextObjectOuterPending
+" xmap ih <Plug>GitGutterTextObjectInnerVisual
+" xmap ah <Plug>GitGutterTextObjectOuterVisual
+"
+" If you don't want vim-gitgutter to set up any mappings at all, use this:
+"
+" let g:gitgutter_map_keys = 0
+"
+" Finally, you can force vim-gitgutter to update its signs across all visible buffers with :GitGutterAll.
+"
+" See the customisation section below for how to change the defaults.
+" Folding
+"
+" Use the GitGutterFold command to fold all unchanged lines, leaving just the hunks visible. Use zr to unfold 3 lines of context above and below a hunk.
+"
+" Execute GitGutterFold a second time to restore the previous view.
+"
+" There is a TON more customization available on the website http://github.com/airblade/vim-gitgutter
+" }}}
+Plug 'MattesGroeger/vim-bookmarks'  " Allow the use of bookmarks {{{
 " This is pretty self explanatory
 nnoremap <TAB> :BookmarkNext<CR>
 nnoremap mn :BookmarkNext<CR>
@@ -347,9 +509,9 @@ nnoremap <leader>a :BookmarkAnnotate<CR>
 nnoremap <leader><TAB> :BookmarkShowAll<CR>
 nnoremap <leader>x :BookmarkClear<CR>
 " }}}
+Plug 'w0rp/ale'                 " Async Lint Engine {{{
 
-" {{{ ale settings
-
+" ale settings
 let g:ale_set_highlights = 1
 let g:airline#extensions#ale#enabled = 1
 let g:ale_cursor_detail = 0
@@ -366,9 +528,8 @@ let g:ale_linters = {
 let g:ale_rust_rls_toolchain = 'stable'
 let g:ale_fixers = {
       \ 'rust': ['cargo-fmt'],
-      \ 'typescript': ['prettier', 'tslint'],
+      \ 'typescript': ['prettier', 'tslint', 'remove_trailing_lines', 'trim_whitespace'],
       \ 'ruby': ['rubocop'],
-      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
       \ }
 
 " Enable completion where available.
@@ -381,10 +542,8 @@ let g:ale_sign_error = "✗"
 let g:airline#extensions#ale#error_symbol = "✗"
 let g:ale_sign_warning = "⚠"
 let g:airline#extensions#ale#warning_symbol = "⚠"
-set omnifunc=ale#completion#OmniFunc
-" }}}
 
-" coc keybinds {{{
+" keybinds --
 nmap <F2> <Plug>(coc-rename)
 " remap for format selected line(s)
 nmap <localleader>f <Plug>(coc-format-selected)
@@ -405,9 +564,13 @@ omap af <Plug>(coc-funcobj-a)
 
 " use :Format to format current buffer
 command! -nargs=0 Format :call CocAction('format')
-" }}}
 
-" {{{ vim-fugitive documentation
+set omnifunc=ale#completion#OmniFunc
+" }}}
+" {{{ Autocomplete
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" }}}
+Plug 'tpope/vim-fugitive' " A Git wrapper so awesome it should be illegal {{{
 " I'm not going to lie to you; fugitive.vim may very well be the best Git wrapper of all time. Check out these features:
 "
 " View any blob, tree, commit, or tag in the repository with :Gedit (and :Gsplit, :Gvsplit, :Gtabedit, ...). Edit a file in the index and write to it to stage the changes. Use :Gdiff to bring up the staged version of the file side by side with the working tree version and use Vim's diff handling capabilities to stage a subset of the file's changes.
@@ -428,36 +591,32 @@ command! -nargs=0 Format :call CocAction('format')
 "
 " Last but not least, there's :Git for running any arbitrary command, and Git! to open the output of a command in a temp file.
 " }}}
-
-" {{{ status.vim settings
+Plug 'dickeyxxx/status.vim' " A better status line {{{
 "Load Fugitive
 let g:statusline_fugitive = 1
 "Do Not Load RVM
 let g:statusline_rvm = 0
-"Load Syntastic
+"Do Not Load Syntastic
 let g:statusline_syntastic = 1
-"Turn statusline on
+"Turn statusline off
 let g:statusline_enabled = 1
 "Turn on full paths
 let g:statusline_fullpath = 1
 " }}}
-
-" {{{ vim-instant-markdown settings
+" Plug 'ervandew/supertab'    " Use tab for completion
+Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }  " Preview markdown files. {{{
 filetype plugin on
 "Uncomment to override defaults:
 "let g:instant_markdown_slow = 1
-let g:instant_markdown_autostart = 1
-"let g:instant_markdown_open_to_the_world = 1
+"let g:instant_markdown_autostart = 0
+"let g:instant_markdown_open_to_the_world = 1 
 "let g:instant_markdown_allow_unsafe_content = 1
 "let g:instant_markdown_allow_external_content = 0
 "let g:instant_markdown_mathjax = 1
+" Plugins end here
 " }}}
-
-" OmniSharp settings {{{
-let g:OmniSharp_server_stdio = 1
+call plug#end()
 " }}}
-" }}}
-
 " Put your non-Plugin stuff after this line
 
 " Tell vim to remember certain things when we exit {{{
@@ -469,7 +628,8 @@ let g:OmniSharp_server_stdio = 1
 set viminfo='10,\"100,:20,%,n~/.config/nvim/viminfo
 " }}}
 
-" Resume cursor position {{{
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file {{{
 function! ResCur()
   if line("'\"") <= line("$")
     normal! g`"
@@ -477,30 +637,31 @@ function! ResCur()
   endif
 endfunction
 
-au!
-au BufWinEnter * call ResCur()
+augroup resCur
+  au!
+  au BufWinEnter * call ResCur()
+augroup END
 " }}}
 
 " Other key remaps {{{
-
 " These let me move lines very easily with m and a direction.
-nnoremap mj ddp
-nnoremap mk ddkP
+" They can't seem to jump folds though.
+nnoremap mj :m .+1<CR>==
+nnoremap mk :m .-2<CR>==
 vnoremap mj :m '>+1<CR>gv=gv
 vnoremap mk :m '<-2<CR>gv=gv
-
-" turn off search highlight
-nnoremap <leader><space> :nohlsearch<CR>
-
 " allow tab to jump between panes
 nnoremap <tab> <c-w><c-w>
 inoremap <c-s> <esc>:update<CR>a
-
+inoremap <c-q> <esc>:wq<CR>
+nnoremap qq :q<CR>
+nnoremap <c-q> :wqa<CR>
 " Quickly edit this file
 nnoremap <leader>ev :split $MYVIMRC<cr>
 " Quickly reload this file
 nnoremap <leader>sv :source $MYVIMRC<cr>
-
+" Save and quit with ctrl-q
+inoremap <c-q> <esc>:wq<cr>
 " H and L go to the beginning and the end of a line respectively
 nnoremap H 0
 onoremap H 0
@@ -517,14 +678,12 @@ inoremap <DOWN> <nop>
 inoremap <LEFT> <nop>
 inoremap <RIGHT> <nop>
 
-" ???
 onoremap in( :<c-u>normal! f(vi(<cr>
 onoremap il( :<c-u>normal! F(vi(<cr>
 onoremap in{ :<c-u>normal! f{vi{<cr>
 onoremap il{ :<c-u>normal! F{vi{<cr>
 onoremap in[ :<c-u>normal! f[vi[<cr>
 onoremap il[ :<c-u>normal! F[vi[<cr>
-
 " Terminal commands
 tnoremap <ESC> <C-\><C-n>
 nnoremap <C-t> :sp term://bash<cr>
@@ -532,8 +691,8 @@ nnoremap <C-t> :sp term://bash<cr>
 
 " abbreviations {{{
 iabbrev @@ jhessin@gmail.com
-iabbrev ccopy Copyright 2019 Jim Hessin, all rights reserved.
-iabbrev ssig -- <cr>Jim Hessin<cr>jhessin@gmail.com
+iabbrev ccopy Copyright 2019 Jim Hessin, all rights reserved. 
+iabbrev ssig -- <cr>Jim Hessin<cr>jhessin@gmail.com 
 " }}}
 
 " TAB spacing {{{
@@ -544,12 +703,11 @@ set expandtab				" tabs are expanded to spaces
 
 " UI Config {{{
 " set guicursor=    " disable gui cursor for my backward system.
-set nocompatible  " Modernize vim
 set tw=79         " Set word wrap at 79 characters
 set number				" show line numbers
 set showcmd				" show command in bottom bar
 set cursorline				" highlight the current line
-filetype indent on    " load filetype-specific indent file
+filetype indent on    " load filetype-specific indent file  
 set wildmenu          " visual autocomplet for command menu
 set shiftround        " round to the nearest shiftstop
 set shiftwidth=2      " set the tab stops to 2
@@ -557,12 +715,18 @@ set showmatch         " highlight matching [{()}]
 set incsearch         " search as characters are entered
 set hlsearch          " highlight matches
 set clipboard+=unnamedplus " Use standard clipboard for yank and paste
-set exrc
 " auto indent files on save/load
+augroup UI
+  au!
+  " au BufRead *.html,*.js,*.ts,*.rs,*.toml :normal gg=G
   " spell check all md and txt files
-au FileType text,markdown :setlocal spell
-au BufNewFile,BufRead * setlocal formatoptions-=ro
-" au BufWritePost init.vim so $MYVIMRC    " Automatically load changes
+  au FileType text,markdown :setlocal spell
+  au BufNewFile,BufRead * setlocal formatoptions-=ro
+augroup END
+" }}}
+
+" turn off search highlight {{{
+nnoremap <leader><space> :nohlsearch<CR>
 " }}}
 
 " Folding! {{{
