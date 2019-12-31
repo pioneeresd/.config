@@ -5,7 +5,6 @@
 mkdir -p $HOME/Documents/github $HOME/Documents/bitbucket\
 $HOME/Documents/heroku
 
-mkdir -p 
 if [ $USER == 'jhessin' ]; then
   git clone https://github.com/jhessin/dvp.git $HOME/Documents/github/dvp
   cd $HOME/Documents/github/dvp
@@ -25,5 +24,5 @@ fi
 cat ~/.ssh/id_rsa.pub | xclip -sel clip
 echo "Please paste SSH key into github."
 echo "Then run: 
-curl https://raw.githubusercontent.com/$USER/.config/master/keysetup.sh | bash"
+curl https://raw.githubusercontent.com/$USER/.config/master/setup.sh | bash"
 
